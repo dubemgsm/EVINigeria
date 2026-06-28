@@ -63,7 +63,7 @@ A predictive model is developed to estimate the probability of education disrupt
 
 Outputs are expressed as probabilities, allowing EBI to anticipate emerging hotspots rather than reacting to crises after they occur.
 
-In addition, seasonal and temporal modeling was conducted to isolate high-risk conflict windows. By correlating daily conflict reports with lunar Islamic calendars (Ramadan and Eid cycles), Christian religious holidays, and national public events, the model successfully identifies temporal spikes. Our historical analysis reveals a 14.4% rise in conflict incidents on holidays, a 15.9% spike in fatalities in the 7-day windows surrounding them, and a dry-season surge peaking in February (averaging 12.8 deaths/day) due to increased ground mobility.
+Additionally, temporal modeling correlates conflict events with religious calendars and national events to isolate seasonal and holiday conflict spikes.
 
 ### 3.5 Decision-Support Tool
 All outputs are integrated into an interactive dashboard, including:
