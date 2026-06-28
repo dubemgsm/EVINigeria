@@ -1,20 +1,8 @@
 # Education Bridge Initiative (EBI): Prioritisation Strategy
 
 ## Key Findings
-Our data-driven spatial analysis has identified the top 10 most vulnerable Local Government Areas (LGAs) in Northeast Nigeria for targeted intervention:
-1. **Maiduguri** (Borno)
-2. **Gwoza** (Borno)
-3. **Jere** (Borno)
-4. **Bama** (Borno)
-5. **Konduga** (Borno)
-6. **Potiskum** (Yobe)
-7. **Ngala** (Borno)
-8. **Fune** (Yobe)
-9. **Damboa** (Borno)
-10. **Biu** (Borno)
 
-- **Borno & Northern Concentration:** Critical education vulnerability is heavily concentrated in northern and conflict-exposed areas, with 8 of the top 10 priority LGAs located in Borno State.
-- **Infrastructure Mismatch Insights:** The analysis reveals extreme mismatches between population demand and school coverage. In major urban centers (e.g. Maiduguri and Jere), high population density severely overburdens existing infrastructure. Even in areas with lower conflict intensity, structural access constraints remain severe due to extremely low school density.
+The model identifies a concentrated set of high-risk LGAs, with 7 of the top 10 located in northern Borno. These areas combine high conflict intensity, large school-age populations, and low school access, making them priority zones for immediate intervention.
 
 ---
 
@@ -55,6 +43,8 @@ All components are normalised and weighted to produce a comparable score across 
 - Rank areas by urgency.
 - Identify mismatches between population and school infrastructure.
 - Allocate resources more effectively.
+
+Analysis shows that conflict intensity and population pressure are the strongest contributors to vulnerability, while school density reduces risk where adequate infrastructure exists.
 
 ### 3.3 Risk Profiling (Clustering)
 Using unsupervised machine learning (K-Means clustering), LGAs are grouped into distinct risk categories:
@@ -137,17 +127,11 @@ This targeted approach ensures that limited resources are deployed where they wi
 
 ## Model Insights and Limitations
 
-### Which Variables Most Influence EVI?
-Our statistical indexing and predictive machine learning models show that:
-- **Conflict Intensity (40% index weight / 53.8% feature importance):</strong> Measured by log-scaled fatalities and conflict recency. This is the single most dominant factor driving immediate risk of education disruption.
-- **School-Age Population Pressure (40% index weight / 19.5% feature importance):</strong> Measures demographic pressure. It represents the potential demand in an LGA, exposing structural mismatches when school infrastructure is absent or overstrained.
-- **School Access Density (20% index weight / 18.8% feature importance):</strong> Standardized school density per 1,000 children. Lower density strongly correlates with higher vulnerability scores.
-
-### Data Limitations
-To maintain a decision-ready yet realistic stance, the index acknowledges the following limitations:
-- **Temporal Resolution of Infrastructure:** The school dataset (GRID3/iMMAP) offers a static census snapshot. It may not reflect real-time physical damage or community-led temporary reopenings.
-- **IDP Displacement Dynamics:** Demographics are projected from UN OCHA/GRID3 SADD surveys. Sudden security events can cause rapid, localized migrations of internally displaced persons (IDPs) that outpace census updates.
-- **Reporting Gaps:** ACLED conflict data, while updated weekly, is subject to reporting constraints or telecommunication outages in remote, high-risk areas.
+- Conflict intensity is the strongest predictor of disruption risk
+- School density reduces vulnerability where sufficient infrastructure exists
+- School data may be incomplete in remote areas
+- Conflict data may underreport events in inaccessible locations
+- Population estimates rely on projections
 
 ---
 
@@ -169,3 +153,15 @@ To maintain a decision-ready yet realistic stance, the index acknowledges the fo
 - **Interactive geospatial dashboard** (deployed via GitHub Pages)
 - **Top-priority LGA ranking** for intervention
 - **Open-source repository** with full data and methodology
+
+---
+
+## Scalability
+
+This approach requires only three data inputs:
+
+- Conflict event data
+- Population distribution
+- School locations
+
+These datasets are globally available, allowing the model to be rapidly applied in other countries where EBI operates without redesign.

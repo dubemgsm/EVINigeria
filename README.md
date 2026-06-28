@@ -1,5 +1,15 @@
 # Education Vulnerability Index (EVI) Dashboard: Borno, Adamawa, and Yobe (BAY) States
 
+## Key Result
+
+This project identifies the 10 highest-priority LGAs for education intervention in Northeast Nigeria using a composite Education Vulnerability Index (EVI).
+
+## View Results
+
+- Dashboard: https://dubemgsm.github.io/EVINigeria/
+- Strategy: https://dubemgsm.github.io/EVINigeria/strategy.html
+- Priority Areas: https://dubemgsm.github.io/EVINigeria/priority.html
+
 An interactive data science and spatial analysis platform that maps school-level vulnerability, resource distribution, and predictive disruption risks across **65 Local Government Areas (LGAs)** in Borno, Adamawa, and Yobe (BAY) States, Northeast Nigeria.
 
 The complete dashboard and interactive Leaflet maps are hosted publicly at:  

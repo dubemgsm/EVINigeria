@@ -153,29 +153,11 @@
         <div class="card">
             <h2 style="margin-bottom: 25px;">Prioritisation Strategy</h2>
             
-            <!-- Key Findings Callout (TASK 5) -->
-            <div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #bfdbfe; border-radius: 12px; padding: 25px; margin-bottom: 30px;">
-                <h3 style="margin-top: 0; color: #1e3a8a; font-size: 20px;">Key Findings</h3>
-                <p style="color: #1e3a8a; font-weight: 600; margin-bottom: 12px;">
-                    Our data-driven spatial analysis has identified the top 10 most vulnerable Local Government Areas (LGAs) in Northeast Nigeria for targeted intervention:
-                </p>
-                <ol style="margin-bottom: 15px; padding-left: 20px; color: #1e3a8a; font-weight: 500;">
-                    <li><strong>Maiduguri</strong> (Borno)</li>
-                    <li><strong>Gwoza</strong> (Borno)</li>
-                    <li><strong>Jere</strong> (Borno)</li>
-                    <li><strong>Bama</strong> (Borno)</li>
-                    <li><strong>Konduga</strong> (Borno)</li>
-                    <li><strong>Potiskum</strong> (Yobe)</li>
-                    <li><strong>Ngala</strong> (Borno)</li>
-                    <li><strong>Fune</strong> (Yobe)</li>
-                    <li><strong>Damboa</strong> (Borno)</li>
-                    <li><strong>Biu</strong> (Borno)</li>
-                </ol>
-                <ul style="margin-bottom: 0; padding-left: 20px; color: #1e3a8a;">
-                    <li style="margin-bottom: 6px;"><strong>Borno & Northern Concentration:</strong> Critical education vulnerability is heavily concentrated in northern and conflict-exposed areas, with 8 of the top 10 priority LGAs located in Borno State.</li>
-                    <li><strong>Infrastructure Mismatch Insights:</strong> The analysis reveals extreme mismatches between population demand and school coverage. In major urban centers (e.g. Maiduguri and Jere), high population density severely overburdens existing infrastructure. Even in areas with lower conflict intensity, structural access constraints remain severe due to extremely low school density.</li>
-                </ul>
-            </div>
+            <h2>Key Findings</h2>
+
+            <p>
+            The model identifies a concentrated set of high-risk LGAs, with 7 of the top 10 located in northern Borno. These areas combine high conflict intensity, large school-age populations, and low school access, making them priority zones for immediate intervention.
+            </p>
             
             <h3>1. Context</h3>
             <p>The Education Bridge Initiative (EBI) operates in conflict-affected regions where education access is highly uneven and rapidly changing. While field teams possess strong contextual knowledge, the organisation’s current planning approach relies on fragmented and unevenly available information. As a result, EBI lacks a systematic, data-driven mechanism to prioritise interventions across regions, particularly when conflict dynamics shift quickly. </p>
@@ -214,6 +196,9 @@
                 <li>Identify mismatches between population and school infrastructure</li>
                 <li>Allocate resources more effectively</li>
             </ul>
+            <p>
+            Analysis shows that conflict intensity and population pressure are the strongest contributors to vulnerability, while school density reduces risk where adequate infrastructure exists.
+            </p>
             
             <h3>3.3 Risk Profiling (Clustering)</h3>
             <p>Using unsupervised machine learning (KMeans clustering), LGAs are grouped into distinct risk categories:</p>
@@ -270,27 +255,13 @@
             <h4>4.4 Decision Insight</h4>
             <p>Rather than distributing resources evenly, EBI should prioritise the top-ranked LGAs identified by the EVI, where education disruption risk is highest, infrastructure gaps are most severe, and population demand is most concentrated. This targeted approach ensures that limited resources are deployed where they will have the greatest impact.</p>
             
-            <!-- Model Insights and Limitations Section (TASK 6) -->
-            <h3>Model Insights and Limitations</h3>
-            
-            <h4>Which Variables Most Influence EVI?</h4>
-            <p>
-                Our statistical indexing and predictive machine learning models show that:
-            </p>
+            <h2>Model Insights and Limitations</h2>
             <ul>
-                <li><strong>Conflict Intensity (40% index weight / 53.8% feature importance):</strong> Measured by log-scaled fatalities and conflict recency. This is the single most dominant factor driving immediate risk of education disruption.</li>
-                <li><strong>School-Age Population Pressure (40% index weight / 19.5% feature importance):</strong> Measures demographic pressure. It represents the potential demand in an LGA, exposing structural mismatches when school infrastructure is absent or overstrained.</li>
-                <li><strong>School Access Density (20% index weight / 18.8% feature importance):</strong> Standardized school density per 1,000 children. Lower density strongly correlates with higher vulnerability scores.</li>
-            </ul>
-            
-            <h4>Data Limitations</h4>
-            <p>
-                To maintain a decision-ready yet realistic stance, the index acknowledges the following limitations:
-            </p>
-            <ul>
-                <li><strong>Temporal Resolution of Infrastructure:</strong> The school dataset (GRID3/iMMAP) offers a static census snapshot. It may not reflect real-time physical damage or community-led temporary reopenings.</li>
-                <li><strong>IDP Displacement Dynamics:</strong> Demographics are projected from UN OCHA/GRID3 SADD surveys. Sudden security events can cause rapid, localized migrations of internally displaced persons (IDPs) that outpace census updates.</li>
-                <li><strong>Reporting Gaps:</strong> ACLED conflict data, while updated weekly, is subject to reporting constraints or telecommunication outages in remote, high-risk areas.</li>
+              <li>Conflict intensity is the strongest predictor of disruption risk</li>
+              <li>School density reduces vulnerability where sufficient infrastructure exists</li>
+              <li>School data may be incomplete in remote areas</li>
+              <li>Conflict data may underreport events in inaccessible locations</li>
+              <li>Population estimates rely on projections</li>
             </ul>
             
             <h3>5. Proposed Activities</h3>
@@ -313,10 +284,25 @@
                 <li>Top-priority LGA ranking for intervention</li>
                 <li>Open-source repository with full data and methodology</li>
             </ul>
+
+            <h2>Scalability</h2>
+            <p>
+            This approach requires only three data inputs:
+            </p>
+            <ul>
+              <li>Conflict event data</li>
+              <li>Population distribution</li>
+              <li>School locations</li>
+            </ul>
+            <p>
+            These datasets are globally available, allowing the model to be rapidly applied in other countries where EBI operates without redesign.
+            </p>
         </div>
     </div>
     <div class="footer">
         © 2026 Education Vulnerability Index (EVI) Nigeria Project • Deployed via GitHub Pages.
+        <br>
+        <a href="https://github.com/dubemgsm/EVINigeria" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 10px; display: inline-block;">GitHub Repository</a>
     </div>
 </body>
 </html>

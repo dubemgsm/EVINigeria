@@ -270,20 +270,35 @@
     
     <div class="container">
         <!-- Summary & Actions Row -->
-        <div class="card full-width" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; background: linear-gradient(to right, #ffffff, #f8fafc); border-left: 5px solid var(--primary); margin-bottom: 25px;">
-            <div style="flex: 1; min-width: 300px;">
-                <p style="font-size: 16px; font-weight: 600; color: var(--text-main); margin-bottom: 5px;">
-                    This project identifies the top 10 priority LGAs for education intervention using a data-driven Education Vulnerability Index.
-                </p>
-                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0;">
-                    Explore the priority rankings, read our intervention strategy, or view GIS mapping layers. 
-                    <a href="https://github.com/dubemgsm/EVINigeria" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold; margin-left: 5px;">View GitHub Repository</a>
-                </p>
+        <div class="card full-width" style="background: linear-gradient(to right, #ffffff, #f8fafc); border-left: 5px solid var(--primary); margin-bottom: 25px; padding: 25px 35px;">
+            <p style="font-size: 16px; font-weight: 600; color: var(--text-main); margin-bottom: 8px;">
+                This analysis identifies the 10 most vulnerable LGAs in Northeast Nigeria, 
+                where conflict, population pressure, and limited school access combine to 
+                create the highest risk of education disruption.
+                These areas should be prioritised immediately for intervention.
+            </p>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0;">
+                Explore the priority rankings, read our intervention strategy, or view GIS mapping layers.
+            </p>
+        </div>
+
+        <!-- Key Findings & Navigation Row -->
+        <div class="card full-width" style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; background: #ffffff; border-left: 5px solid var(--accent); margin-bottom: 25px;">
+            <div>
+                <h2 style="border-left: none; padding-left: 0; margin-bottom: 15px;">Key Findings</h2>
+                <ul style="margin-left: 20px; color: var(--text-muted); line-height: 1.7; font-size: 14.5px;">
+                    <li style="margin-bottom: 8px;">7 of the top 10 most vulnerable LGAs are located in northern Borno</li>
+                    <li style="margin-bottom: 8px;">Education vulnerability is highly concentrated rather than evenly distributed</li>
+                    <li style="margin-bottom: 0;">Mismatch between school infrastructure and population is a major driver of risk</li>
+                </ul>
             </div>
-            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                <a href="maps.html" class="nav-button" style="background-color: var(--primary); color: #fff; border: none; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">View Map</a>
-                <a href="priority.html" class="nav-button" style="background-color: #fef3e6; color: #b26a15; border: 1px solid #fcdbb5; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">Decision Insight</a>
-                <a href="strategy.html" class="nav-button" style="background-color: #f1f5f9; color: var(--text-main); border: 1px solid var(--border); padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">Read Strategy</a>
+            <div style="border-left: 1px solid var(--border); padding-left: 30px;">
+                <h2 style="border-left: none; padding-left: 0; margin-bottom: 15px;">Navigation Section</h2>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><a href="strategy.html" style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 15px;">Read Strategy</a></li>
+                    <li style="margin-bottom: 10px;"><a href="priority.html" style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 15px;">View Priority LGAs</a></li>
+                    <li><a href="maps.html" style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 15px;">View Maps</a></li>
+                </ul>
             </div>
         </div>
 
@@ -474,6 +489,8 @@
     
     <div class="footer">
         © 2026 Education Vulnerability Index (EVI) Nigeria Project • Powered by standard WGS84 GIS mappings and Leaflet interactive visualizations.
+        <br>
+        <a href="https://github.com/dubemgsm/EVINigeria" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 10px; display: inline-block;">GitHub Repository</a>
     </div>
 </body>
 </html>
