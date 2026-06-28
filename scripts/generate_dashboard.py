@@ -321,10 +321,29 @@ index_html_content = f"""<!DOCTYPE html>
         <div class="nav-links">
             <a href="index.html" class="nav-button active">Dashboard</a>
             <a href="maps.html" class="nav-button">Interactive Maps</a>
+            <a href="strategy.html" class="nav-button">Strategy</a>
         </div>
     </div>
     
     <div class="container">
+        <!-- Summary & Actions Row -->
+        <div class="card full-width" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; background: linear-gradient(to right, #ffffff, #f8fafc); border-left: 5px solid var(--primary); margin-bottom: 25px;">
+            <div style="flex: 1; min-width: 300px;">
+                <p style="font-size: 16px; font-weight: 600; color: var(--text-main); margin-bottom: 5px;">
+                    This project identifies the top 10 priority LGAs for education intervention using a data-driven Education Vulnerability Index.
+                </p>
+                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0;">
+                    Explore the priority rankings, read our intervention strategy, or view GIS mapping layers. 
+                    <a href="https://github.com/dubemgsm/EVINigeria" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold; margin-left: 5px;">View GitHub Repository</a>
+                </p>
+            </div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="maps.html" class="nav-button" style="background-color: var(--primary); color: #fff; border: none; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">View Map</a>
+                <a href="#top-lgas" class="nav-button" style="background-color: #f1f5f9; color: var(--text-main); border: 1px solid var(--border); padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">View Top LGAs</a>
+                <a href="strategy.html" class="nav-button" style="background-color: #f1f5f9; color: var(--text-main); border: 1px solid var(--border); padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">Read Strategy</a>
+            </div>
+        </div>
+
         <!-- Stats Row -->
         <div class="kpi-card">
             <div>
@@ -359,7 +378,7 @@ index_html_content = f"""<!DOCTYPE html>
         </div>
         
         <!-- Table & Sidebar Split Row -->
-        <div class="card split-left">
+        <div class="card split-left" id="top-lgas">
             <h2>Top 10 Priority LGAs requiring Intervention</h2>
             <div class="table-container">
                 <table>
@@ -591,6 +610,7 @@ maps_html_content = """<!DOCTYPE html>
         <div class="nav-links">
             <a href="index.html" class="nav-button">Dashboard</a>
             <a href="maps.html" class="nav-button active">Interactive Maps</a>
+            <a href="strategy.html" class="nav-button">Strategy</a>
         </div>
     </div>
     
@@ -640,4 +660,255 @@ maps_html_content = """<!DOCTYPE html>
 with open(os.path.join(DOCS_DIR, "maps.html"), "w") as f:
     f.write(maps_html_content)
 print("Saved docs/maps.html")
-print("Dashboard and Maps switcher generated successfully!")
+
+# 4. Write docs/strategy.html (Strategy page)
+strategy_html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prioritisation Strategy - EVI Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --primary: #3b82f6;
+            --primary-grad: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --border: #e2e8f0;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0;
+        }
+        .header {
+            background: var(--primary-grad);
+            color: #ffffff;
+            padding: 30px 5%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-button {
+            background-color: rgba(255,255,255,0.15);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-button:hover {
+            background-color: #ffffff;
+            color: var(--primary);
+        }
+        .nav-button.active {
+            background-color: #ffffff;
+            color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid var(--border);
+            margin-bottom: 25px;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+            letter-spacing: -0.5px;
+        }
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+        p {
+            font-size: 15px;
+            color: #334155;
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        li {
+            font-size: 15px;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+        .formula-box {
+            background-color: #f1f5f9;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 14px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            text-align: center;
+            color: #0f172a;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 12px;
+            border-top: 1px solid var(--border);
+            background-color: #ffffff;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <h1>Education Bridge Initiative</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-button">Dashboard</a>
+            <a href="maps.html" class="nav-button">Interactive Maps</a>
+            <a href="strategy.html" class="nav-button active">Strategy</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2 style="margin-bottom: 25px;">Prioritisation Strategy</h2>
+            
+            <h3>1. Context</h3>
+            <p>The Education Bridge Initiative (EBI) operates in conflict-affected regions where education access is highly uneven and rapidly changing. While field teams possess strong contextual knowledge, the organisation’s current planning approach relies on fragmented and unevenly available information. As a result, EBI lacks a systematic, data-driven mechanism to prioritise interventions across regions, particularly when conflict dynamics shift quickly. </p>
+            <p>This proposal addresses that gap by introducing a scalable, data-driven prioritisation framework that complements field knowledge with geospatial and predictive analytics.</p>
+            
+            <h3>2. Objectives</h3>
+            <p>The project aims to:</p>
+            <ul>
+                <li><strong>Develop an Education Vulnerability Index (EVI)</strong> to identify areas with the greatest unmet education needs</li>
+                <li><strong>Classify regions into risk profiles</strong> to support differentiated intervention strategies</li>
+                <li><strong>Predict future education disruption risks</strong> using historical and real-time data</li>
+                <li><strong>Deliver an interactive decision-support tool</strong> usable by non-technical staff</li>
+                <li><strong>Enable rapid updates</strong> as new data becomes available</li>
+            </ul>
+            
+            <h3>3. Approach</h3>
+            <p>The proposed approach integrates geospatial analysis, statistical modelling, and machine learning into a unified prioritisation system.</p>
+            
+            <h3>3.1 Data Integration</h3>
+            <p>The model combines three core datasets:</p>
+            <ul>
+                <li>Conflict event data (intensity, frequency, recency)</li>
+                <li>Population distribution, with a focus on school-age children</li>
+                <li>School infrastructure data</li>
+            </ul>
+            <p>These datasets are harmonised at the Local Government Area (LGA) level to enable consistent analysis.</p>
+            
+            <h3>3.2 Education Vulnerability Index (EVI)</h3>
+            <p>An index is constructed to quantify education vulnerability:</p>
+            <div class="formula-box">
+                EVI = Conflict Intensity + Population Pressure - School Access
+            </div>
+            <p>All components are normalised and weighted to produce a comparable score across LGAs. The EVI allows EBI to:</p>
+            <ul>
+                <li>Rank areas by urgency</li>
+                <li>Identify mismatches between population and school infrastructure</li>
+                <li>Allocate resources more effectively</li>
+            </ul>
+            
+            <h3>3.3 Risk Profiling (Clustering)</h3>
+            <p>Using unsupervised machine learning (KMeans clustering), LGAs are grouped into distinct risk categories:</p>
+            <ul>
+                <li><strong>Emergency zones:</strong> high conflict, low access</li>
+                <li><strong>Expansion zones:</strong> high population pressure, moderate access</li>
+                <li><strong>Infrastructure gaps:</strong> low conflict but insufficient schools</li>
+                <li><strong>Stable areas:</strong> relatively balanced conditions</li>
+            </ul>
+            <p>This classification enables tailored programmatic responses.</p>
+            
+            <h3>3.4 Predictive Modelling</h3>
+            <p>A predictive model is developed to estimate the probability of education disruption in each LGA. The model uses:</p>
+            <ul>
+                <li>Conflict trends over time</li>
+                <li>Population density</li>
+                <li>School access indicators</li>
+            </ul>
+            <p>Outputs are expressed as probabilities, allowing EBI to anticipate emerging hotspots rather than reacting to crises after they occur.</p>
+            
+            <h3>3.5 Decision-Support Tool</h3>
+            <p>All outputs are integrated into an interactive dashboard, including EVI maps, risk classification maps, and priority ranking tables. These tools are designed for usability by non-technical staff and can directly inform planning and resource allocation decisions.</p>
+            
+            <h3>3.6 Automation and Scalability</h3>
+            <p>The system includes an automated pipeline that updates outputs as new data becomes available. The methodology relies exclusively on open data and modular code, ensuring it can be applied to other countries, adapted to varying data availability, and updated without rebuilding the system.</p>
+            
+            <h3>4. Proposed Activities</h3>
+            <ul>
+                <li>Data acquisition and validation</li>
+                <li>Data cleaning and geospatial alignment</li>
+                <li>Feature engineering and indicator construction</li>
+                <li>Index development and validation</li>
+                <li>Clustering and predictive modelling</li>
+                <li>Dashboard and visualization development</li>
+                <li>Automation pipeline creation</li>
+            </ul>
+            
+            <h3>5. Deliverables</h3>
+            <ul>
+                <li>Education Vulnerability Index dataset (LGA level)</li>
+                <li>Risk classification model and outputs</li>
+                <li>Predictive model for disruption risk</li>
+                <li>Interactive geospatial dashboard (GitHub Pages)</li>
+                <li>Top-priority LGA ranking for intervention</li>
+                <li>Open-source repository with full data and methodology</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        © 2026 Education Vulnerability Index (EVI) Nigeria Project • Deployed via GitHub Pages.
+    </div>
+</body>
+</html>
+"""
+
+with open(os.path.join(DOCS_DIR, "strategy.html"), "w") as f:
+    f.write(strategy_html_content)
+print("Saved docs/strategy.html")
+print("Dashboard, Maps, and Strategy pages generated successfully!")

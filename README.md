@@ -31,15 +31,15 @@ This project implements a reproducible Python data pipeline to clean, integrate,
 
 ## Data Sources
 
-The pipeline processes four primary raw datasets located in `data/raw/`:
+All input data was manually downloaded from the following providers and uploaded into the `data/raw/` directory:
 
-1. **Administrative Boundaries (GIS Shapefile)**: `data/raw/nga_shp/nga_admin2.shp`
+1. **Boundaries (GIS Shapefile)**: Downloaded from the **UN OCHA Common Operational Datasets (COD)** (`data/raw/nga_shp/nga_admin2.shp`)
    - Official spatial geometries at administrative level 2 (LGAs) for Nigeria. Standardized to `EPSG:4326` (WGS84) and clipped to the BAY states (65 LGAs). Projected to UTM Zone 32N (`EPSG:32632`) for planar metric distance calculations.
-2. **Conflict Events (ACLED)**: `data/raw/acled_conflict.csv`
-   - Detailed event logging of conflict incidents, including geographic coordinates, dates, and recorded fatalities.
-3. **School Coordinates & Attributes**: `data/raw/schools.csv`
+2. **Conflict Events**: Downloaded from the **Armed Conflict Location & Event Data Project (ACLED)** (`data/raw/acled_conflict.csv`)
+   - Detailed spatial event logging of conflict incidents, including geographic coordinates, dates, and recorded fatalities.
+3. **Schools Status**: Downloaded from **GRID3 / iMMAP Nigeria** (`data/raw/schools.csv`)
    - GPS locations of schools, classification categories, and operational layers.
-4. **Demographic Estimates**: `data/raw/population.csv`
+4. **Demographics (SADD)**: Downloaded from the **UN OCHA / GRID3 Sex and Age Disaggregated Data** (`data/raw/population.csv`)
    - Population breakdowns at the LGA level, specifically isolating school-aged children.
 
 ---
