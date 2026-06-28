@@ -158,10 +158,10 @@
         .card {
             background: var(--card-bg);
             border-radius: 20px;
-            padding: 30px;
+            padding: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             border: 1px solid var(--border);
-            margin-bottom: 0;
+            margin-bottom: 12px;
         }
         
         .card h2 {
@@ -252,12 +252,23 @@
             background-color: #ffffff;
             margin-top: 60px;
         }
+        
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        @media (max-width: 900px) {
+            .insight-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <div>
-            <h1>Education Vulnerability Dashboard</h1>
+            <h1>Education Vulnerability Index (EVI)</h1>
             <p>Borno, Adamawa, and Yobe (BAY) States, Nigeria • LGA Unit of Analysis</p>
         </div>
         <div class="nav-links">
@@ -269,37 +280,72 @@
     </div>
     
     <div class="container">
-        <!-- Summary & Actions Row -->
-        <div class="card full-width" style="background: linear-gradient(to right, #ffffff, #f8fafc); border-left: 5px solid var(--primary); padding: 25px 35px;">
-            <p style="font-size: 16px; font-weight: 600; color: var(--text-main); margin-bottom: 8px;">
-                This analysis identifies the 10 most vulnerable LGAs in Northeast Nigeria, 
-                where conflict, population pressure, and limited school access combine to 
-                create the highest risk of education disruption.
-                These areas should be prioritised immediately for intervention.
+        <!-- Summary & Overview -->
+        <div class="card full-width" style="background: linear-gradient(to right, #ffffff, #f8fafc); border-left: 5px solid var(--primary); padding: 25px 35px; margin-bottom: 5px;">
+            <p style="font-size: 16px; font-weight: 600; color: var(--text-main); margin-bottom: 12px; line-height: 1.6;">
+                This analysis identifies the 10 most vulnerable local government authorities (LGAs) in the BAY states, where conflict, population pressure, and limited school access combine to create the highest risk of education disruption. EBI should prioritise intervention in these LGAs to prevent further education disruption.
             </p>
-            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0;">
-                Explore the priority rankings, read our intervention strategy, or view GIS mapping layers.
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">
+                This model integrates conflict data, population distribution, and school infrastructure across all LGAs in Borno, Adamawa, and Yobe states to support data-driven decision-making.
             </p>
         </div>
 
-        <!-- Key Findings & Navigation Row -->
-        <div class="card full-width" style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; background: #ffffff; border-left: 5px solid var(--accent);">
-            <div>
-                <h2 style="border-left: none; padding-left: 0; margin-bottom: 15px;">Key Findings</h2>
-                <ul style="margin-left: 20px; color: var(--text-muted); line-height: 1.7; font-size: 14.5px;">
-                    <li style="margin-bottom: 8px;">7 of the top 10 most vulnerable LGAs are located in northern Borno</li>
-                    <li style="margin-bottom: 8px;">Education vulnerability is highly concentrated rather than evenly distributed</li>
+        <!-- Insights Grid Section -->
+        <div class="full-width insight-grid" style="margin-bottom: 5px;">
+            <!-- Key Findings -->
+            <div class="card" style="border-top: 4px solid var(--accent); margin-bottom: 0;">
+                <h2>Key Findings</h2>
+                <ul style="margin-left: 18px; color: var(--text-muted); line-height: 1.6; font-size: 13.5px; padding-top: 5px;">
+                    <li style="margin-bottom: 10px;">7 of the top 10 most vulnerable LGAs are located in northern Borno</li>
+                    <li style="margin-bottom: 10px;">Education vulnerability is highly concentrated rather than evenly distributed</li>
                     <li style="margin-bottom: 0;">Mismatch between school infrastructure and population is a major driver of risk</li>
                 </ul>
             </div>
-            <div style="border-left: 1px solid var(--border); padding-left: 30px;">
-                <h2 style="border-left: none; padding-left: 0; margin-bottom: 15px;">Navigation Section</h2>
-                <ul style="list-style-type: none; padding: 0;">
-                    <li style="margin-bottom: 10px;"><a href="strategy.html" style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 15px;">Read Strategy</a></li>
-                    <li style="margin-bottom: 10px;"><a href="priority.html" style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 15px;">View Priority LGAs</a></li>
-                    <li><a href="maps.html" style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 15px;">View Maps</a></li>
+            
+            <!-- What This Enables -->
+            <div class="card" style="border-top: 4px solid var(--primary); margin-bottom: 0;">
+                <h2>What This Enables</h2>
+                <ul style="margin-left: 18px; color: var(--text-muted); line-height: 1.6; font-size: 13.5px; padding-top: 5px;">
+                    <li style="margin-bottom: 10px;">Clear prioritisation of intervention areas</li>
+                    <li style="margin-bottom: 10px;">Targeted allocation of limited resources</li>
+                    <li style="margin-bottom: 0;">Rapid response to changing conflict conditions</li>
                 </ul>
             </div>
+            
+            <!-- Explore the Analysis -->
+            <div class="card" style="border-top: 4px solid #10b981; margin-bottom: 0;">
+                <h2>Explore the Analysis</h2>
+                <ul style="list-style-type: none; color: var(--text-muted); line-height: 1.8; font-size: 14px; padding-top: 5px;">
+                    <li style="margin-bottom: 8px;">
+                        <a href="priority.html" style="color: var(--text-main); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-main)'">
+                            <span style="color: #10b981;">➡</span> View Priority LGAs (Decision Page)
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 8px;">
+                        <a href="strategy.html" style="color: var(--text-main); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-main)'">
+                            <span style="color: #10b981;">➡</span> Read Strategy
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 8px;">
+                        <a href="maps.html#evi" style="color: var(--text-main); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-main)'">
+                            <span style="color: #10b981;">➡</span> View EVI Map
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 0;">
+                        <a href="maps.html#clusters" style="color: var(--text-main); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-main)'">
+                            <span style="color: #10b981;">➡</span> View Risk Clusters
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Why This Matters Row -->
+        <div class="card full-width" style="background: #fffbeb; border-left: 5px solid #f59e0b; padding: 25px 35px; border-radius: 16px; margin-bottom: 5px;">
+            <h2 style="color: #b45309; border-left: none; padding-left: 0; margin-bottom: 8px; font-size: 18px;">Why This Matters</h2>
+            <p style="font-size: 14.5px; line-height: 1.6; color: #78350f; margin: 0; font-weight: 500;">
+                Education disruption is highly concentrated geographically. By targeting a small number of LGAs identified in this model, EBI can maximise impact and prevent long-term exclusion.
+            </p>
         </div>
 
         <!-- Stats Row -->
@@ -335,18 +381,7 @@
             <div class="kpi-subtext">Rank #1 on EVI Score</div>
         </div>
         
-        <!-- View Priority LGAs Card (TASK 4) -->
-        <div class="card full-width" style="border-left: 5px solid var(--accent); background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%); display: flex; justify-content: space-between; align-items: center; padding: 25px 35px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); gap: 20px; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 300px;">
-                <h2 style="margin:0 0 8px 0; border:none; padding:0; font-size:22px; color:var(--text-main);">View Priority LGAs</h2>
-                <p style="margin:0; font-size:14px; color:var(--text-muted);">
-                    Explore EBI's decision-ready prioritisation roadmap showing recommended actions, risk levels, and EVI scores for the top 10 most vulnerable LGAs.
-                </p>
-            </div>
-            <div>
-                <a href="priority.html" class="nav-button" style="background: var(--accent-grad); color:#fff; border:none; padding:12px 24px; text-decoration:none; border-radius:8px; font-weight:700; font-size:14px; box-shadow:0 4px 12px rgba(239, 68, 68, 0.2); transition:all 0.2s ease; display:inline-block;">Open Decision Dashboard →</a>
-            </div>
-        </div>
+
         
         <!-- Table & Sidebar Split Row -->
         <div class="card split-left" id="top-lgas">

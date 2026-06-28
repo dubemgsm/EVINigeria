@@ -2,7 +2,7 @@
 
 ## Key Result
 
-This project identifies the 10 highest-priority LGAs for education intervention in Northeast Nigeria using a composite Education Vulnerability Index (EVI).
+This project identifies the 10 highest-priority LGAs for education intervention in Northeast Nigeria using a data-driven Education Vulnerability Index (EVI).
 
 ## View Results
 
@@ -132,6 +132,9 @@ The pipeline constructs several complex metrics at the LGA level:
 * **Spatial Proximities**: Planar distance measurements in meters computed from the LGA centroid to the nearest conflict event and school locations.
 * **School Density**: Calculated as the number of schools per 1,000 school-aged children.
 * **Population Pressure**: Total school-age population per LGA.
+* **Temporal & Seasonality Spikes**: To calculate conflict coincidences and temporal timing windows, daily conflict records from 2011 to the present are processed:
+  - **Holiday & Festive Alignment**: Events are matched against known calendars, isolating 7-day windows surrounding fixed national holidays and religious periods (e.g. Ramadan and Easter). The timing spikes are calculated as the percentage difference in daily conflict events and fatality rates inside these holiday windows versus baseline non-holiday periods (isolating a 14.4% incident spike and 15.9% fatality rate surge).
+  - **Seasonal Mobility**: Daily conflict data is aggregated by calendar month to establish seasonal patterns. This isolates dry-season mobility peaks (January–April), determining that improved vehicular transit capacity correlates with elevated operational security risk, peaking in February with an average of 12.8 daily deaths.
 
 ### 2. Education Vulnerability Index (EVI) Formulation
 Each calculated feature is normalized to a $[0, 1]$ scale via MinMax scaling. The raw EVI is computed as:
@@ -224,6 +227,13 @@ If you wish to run steps manually, execute them in this order:
 4. `python scripts/prediction.py`: Trains the Random Forest classifier and outputs risk probability scores.
 5. `python scripts/visualize.py`: Generates the HTML Leaflet map files using `folium`.
 6. `python scripts/generate_dashboard.py`: Compiles the main layout dashboard and tables.
+
+## Replicating the Model (For Other Locations)
+
+This pipeline is fully modular and coordinates-based. EBI staff can easily adapt it to other operational contexts by replacing the datasets:
+1. **Raw Data Setup**: Replace the administrative boundaries shapefile, ACLED conflict CSV, demographics CSV, and school locations CSV under `data/raw/` with your new region’s data.
+2. **Configuration/Mapping**: Open `scripts/clean_data.py` and modify the path variables and administrative boundary name lookups (e.g., mapping your new boundary columns to the standardized `state` and `lga` variables).
+3. **Execute Pipeline**: Run `python update_pipeline.py`. The geospatial scripts will dynamically project your new geometries, run the spatial joins, perform KMeans profiling, predict risk scores, and rebuild the interactive HTML Leaflet maps for your new region.
 
 ---
 

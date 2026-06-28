@@ -182,23 +182,20 @@
                 Toggle between different GIS layers to analyze the components of education vulnerability.
             </p>
             
-            <button class="map-selector-btn active" onclick="switchMap('evi_map.html', this)">
+            <button id="btn-evi" class="map-selector-btn active" onclick="switchMap('evi_map.html', this)">
                 <span class="title">Education Vulnerability Index (EVI)</span>
                 <span class="desc">A composite spatial index showing overall risk intensity from 0 to 1.</span>
             </button>
             
-            <button class="map-selector-btn" onclick="switchMap('cluster_map.html', this)">
+            <button id="btn-clusters" class="map-selector-btn" onclick="switchMap('cluster_map.html', this)">
                 <span class="title">Risk Profile Clusters</span>
                 <span class="desc">Grouping LGAs by KMeans (k=4) into Emergency, Expansion, Gap, and Stable zones.</span>
             </button>
             
-            <button class="map-selector-btn" onclick="switchMap('mismatch_map.html', this)">
+            <button id="btn-mismatch" class="map-selector-btn" onclick="switchMap('mismatch_map.html', this)">
                 <span class="title">Infrastructure Mismatch Ratio</span>
                 <span class="desc">Ratio comparing school-age population volumes against physical school densities.</span>
             </button>
-            <div style="margin-top: auto; padding-top: 20px; border-top: 1px dashed var(--border); font-size: 11px; text-align: center; color: var(--text-muted);">
-                <a href="https://github.com/dubemgsm/EVINigeria" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">GitHub Repository</a>
-            </div>
         </div>
         
         <div class="map-viewer">
@@ -208,6 +205,7 @@
     
     <script>
         function switchMap(mapUrl, element) {
+            if (!element) return;
             // Update iframe
             document.getElementById('map-iframe').src = mapUrl;
             
@@ -216,6 +214,20 @@
             buttons.forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
         }
+
+        function handleHash() {
+            const hash = window.location.hash;
+            if (hash === '#evi') {
+                switchMap('evi_map.html', document.getElementById('btn-evi'));
+            } else if (hash === '#clusters') {
+                switchMap('cluster_map.html', document.getElementById('btn-clusters'));
+            } else if (hash === '#mismatch') {
+                switchMap('mismatch_map.html', document.getElementById('btn-mismatch'));
+            }
+        }
+        
+        window.addEventListener('DOMContentLoaded', handleHash);
+        window.addEventListener('hashchange', handleHash);
     </script>
 </body>
 </html>

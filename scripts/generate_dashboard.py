@@ -177,11 +177,11 @@ index_html_content = f"""<!DOCTYPE html>
         
         .container {{
             max-width: 1400px;
-            margin: 40px auto;
+            margin: 20px auto;
             padding: 0 20px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
+            gap: 16px;
         }}
         
         /* KPI Cards */
@@ -248,10 +248,10 @@ index_html_content = f"""<!DOCTYPE html>
         .card {{
             background: var(--card-bg);
             border-radius: 20px;
-            padding: 30px;
+            padding: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             border: 1px solid var(--border);
-            margin-bottom: 25px;
+            margin-bottom: 12px;
         }}
         
         .card h2 {{
@@ -342,12 +342,23 @@ index_html_content = f"""<!DOCTYPE html>
             background-color: #ffffff;
             margin-top: 60px;
         }}
+        
+        .insight-grid {{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }}
+        @media (max-width: 900px) {{
+            .insight-grid {{
+                grid-template-columns: 1fr;
+            }}
+        }}
     </style>
 </head>
 <body>
     <div class="header">
         <div>
-            <h1>Education Vulnerability Dashboard</h1>
+            <h1>Education Vulnerability Index (EVI)</h1>
             <p>Borno, Adamawa, and Yobe (BAY) States, Nigeria • LGA Unit of Analysis</p>
         </div>
         <div class="nav-links">
@@ -359,22 +370,72 @@ index_html_content = f"""<!DOCTYPE html>
     </div>
     
     <div class="container">
-        <!-- Summary & Actions Row -->
-        <div class="card full-width" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; background: linear-gradient(to right, #ffffff, #f8fafc); border-left: 5px solid var(--primary); margin-bottom: 25px;">
-            <div style="flex: 1; min-width: 300px;">
-                <p style="font-size: 16px; font-weight: 600; color: var(--text-main); margin-bottom: 5px;">
-                    This project identifies the top 10 priority LGAs for education intervention using a data-driven Education Vulnerability Index.
-                </p>
-                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0;">
-                    Explore the priority rankings, read our intervention strategy, or view GIS mapping layers. 
-                    <a href="https://github.com/dubemgsm/EVINigeria" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold; margin-left: 5px;">View GitHub Repository</a>
-                </p>
+        <!-- Summary & Overview -->
+        <div class="card full-width" style="background: linear-gradient(to right, #ffffff, #f8fafc); border-left: 5px solid var(--primary); padding: 25px 35px; margin-bottom: 5px;">
+            <p style="font-size: 16px; font-weight: 600; color: var(--text-main); margin-bottom: 12px; line-height: 1.6;">
+                This analysis identifies the 10 most vulnerable local government authorities (LGAs) in the BAY states, where conflict, population pressure, and limited school access combine to create the highest risk of education disruption. EBI should prioritise intervention in these LGAs to prevent further education disruption.
+            </p>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">
+                This model integrates conflict data, population distribution, and school infrastructure across all LGAs in Borno, Adamawa, and Yobe states to support data-driven decision-making.
+            </p>
+        </div>
+
+        <!-- Insights Grid Section -->
+        <div class="full-width insight-grid" style="margin-bottom: 5px;">
+            <!-- Key Findings -->
+            <div class="card" style="border-top: 4px solid var(--accent); margin-bottom: 0;">
+                <h2>Key Findings</h2>
+                <ul style="margin-left: 18px; color: var(--text-muted); line-height: 1.6; font-size: 13.5px; padding-top: 5px;">
+                    <li style="margin-bottom: 10px;">7 of the top 10 most vulnerable LGAs are located in northern Borno</li>
+                    <li style="margin-bottom: 10px;">Education vulnerability is highly concentrated rather than evenly distributed</li>
+                    <li style="margin-bottom: 0;">Mismatch between school infrastructure and population is a major driver of risk</li>
+                </ul>
             </div>
-            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                <a href="maps.html" class="nav-button" style="background-color: var(--primary); color: #fff; border: none; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">View Map</a>
-                <a href="priority.html" class="nav-button" style="background-color: #fef3e6; color: #b26a15; border: 1px solid #fcdbb5; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">Decision Insight</a>
-                <a href="strategy.html" class="nav-button" style="background-color: #f1f5f9; color: var(--text-main); border: 1px solid var(--border); padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">Read Strategy</a>
+            
+            <!-- What This Enables -->
+            <div class="card" style="border-top: 4px solid var(--primary); margin-bottom: 0;">
+                <h2>What This Enables</h2>
+                <ul style="margin-left: 18px; color: var(--text-muted); line-height: 1.6; font-size: 13.5px; padding-top: 5px;">
+                    <li style="margin-bottom: 10px;">Clear prioritisation of intervention areas</li>
+                    <li style="margin-bottom: 10px;">Targeted allocation of limited resources</li>
+                    <li style="margin-bottom: 0;">Rapid response to changing conflict conditions</li>
+                </ul>
             </div>
+            
+            <!-- Explore the Analysis -->
+            <div class="card" style="border-top: 4px solid #10b981; margin-bottom: 0;">
+                <h2>Explore the Analysis</h2>
+                <ul style="list-style-type: none; color: var(--text-muted); line-height: 1.8; font-size: 14px; padding-top: 5px;">
+                    <li style="margin-bottom: 8px;">
+                        <a href="priority.html" style="color: var(--text-main); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-main)'">
+                            <span style="color: #10b981;">➡</span> View Priority LGAs (Decision Page)
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 8px;">
+                        <a href="strategy.html" style="color: var(--text-main); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-main)'">
+                            <span style="color: #10b981;">➡</span> Read Strategy
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 8px;">
+                        <a href="maps.html#evi" style="color: var(--text-main); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-main)'">
+                            <span style="color: #10b981;">➡</span> View EVI Map
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 0;">
+                        <a href="maps.html#clusters" style="color: var(--text-main); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-main)'">
+                            <span style="color: #10b981;">➡</span> View Risk Clusters
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Why This Matters Row -->
+        <div class="card full-width" style="background: #fffbeb; border-left: 5px solid #f59e0b; padding: 25px 35px; border-radius: 16px; margin-bottom: 5px;">
+            <h2 style="color: #b45309; border-left: none; padding-left: 0; margin-bottom: 8px; font-size: 18px;">Why This Matters</h2>
+            <p style="font-size: 14.5px; line-height: 1.6; color: #78350f; margin: 0; font-weight: 500;">
+                Education disruption is highly concentrated geographically. By targeting a small number of LGAs identified in this model, EBI can maximise impact and prevent long-term exclusion.
+            </p>
         </div>
 
         <!-- Stats Row -->
@@ -410,18 +471,7 @@ index_html_content = f"""<!DOCTYPE html>
             <div class="kpi-subtext">Rank #1 on EVI Score</div>
         </div>
         
-        <!-- View Priority LGAs Card (TASK 4) -->
-        <div class="card full-width" style="border-left: 5px solid var(--accent); background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%); display: flex; justify-content: space-between; align-items: center; padding: 25px 35px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); gap: 20px; flex-wrap: wrap; margin-bottom: 5px;">
-            <div style="flex: 1; min-width: 300px;">
-                <h2 style="margin:0 0 8px 0; border:none; padding:0; font-size:22px; color:var(--text-main);">View Priority LGAs</h2>
-                <p style="margin:0; font-size:14px; color:var(--text-muted);">
-                    Explore EBI's decision-ready prioritisation roadmap showing recommended actions, risk levels, and EVI scores for the top 10 most vulnerable LGAs.
-                </p>
-            </div>
-            <div>
-                <a href="priority.html" class="nav-button" style="background: var(--accent-grad); color:#fff; border:none; padding:12px 24px; text-decoration:none; border-radius:8px; font-weight:700; font-size:14px; box-shadow:0 4px 12px rgba(239, 68, 68, 0.2); transition:all 0.2s ease; display:inline-block;">Open Decision Dashboard →</a>
-            </div>
-        </div>
+
         
         <!-- Table & Sidebar Split Row -->
         <div class="card split-left" id="top-lgas">
@@ -474,6 +524,8 @@ index_html_content = f"""<!DOCTYPE html>
     
     <div class="footer">
         © 2026 Education Vulnerability Index (EVI) Nigeria Project • Powered by standard WGS84 GIS mappings and Leaflet interactive visualizations.
+        <br>
+        <a href="https://github.com/dubemgsm/EVINigeria" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 10px; display: inline-block;">GitHub Repository</a>
     </div>
 </body>
 </html>
@@ -668,17 +720,17 @@ maps_html_content = """<!DOCTYPE html>
                 Toggle between different GIS layers to analyze the components of education vulnerability.
             </p>
             
-            <button class="map-selector-btn active" onclick="switchMap('evi_map.html', this)">
+            <button id="btn-evi" class="map-selector-btn active" onclick="switchMap('evi_map.html', this)">
                 <span class="title">Education Vulnerability Index (EVI)</span>
                 <span class="desc">A composite spatial index showing overall risk intensity from 0 to 1.</span>
             </button>
             
-            <button class="map-selector-btn" onclick="switchMap('cluster_map.html', this)">
+            <button id="btn-clusters" class="map-selector-btn" onclick="switchMap('cluster_map.html', this)">
                 <span class="title">Risk Profile Clusters</span>
                 <span class="desc">Grouping LGAs by KMeans (k=4) into Emergency, Expansion, Gap, and Stable zones.</span>
             </button>
             
-            <button class="map-selector-btn" onclick="switchMap('mismatch_map.html', this)">
+            <button id="btn-mismatch" class="map-selector-btn" onclick="switchMap('mismatch_map.html', this)">
                 <span class="title">Infrastructure Mismatch Ratio</span>
                 <span class="desc">Ratio comparing school-age population volumes against physical school densities.</span>
             </button>
@@ -691,6 +743,7 @@ maps_html_content = """<!DOCTYPE html>
     
     <script>
         function switchMap(mapUrl, element) {
+            if (!element) return;
             // Update iframe
             document.getElementById('map-iframe').src = mapUrl;
             
@@ -699,6 +752,20 @@ maps_html_content = """<!DOCTYPE html>
             buttons.forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
         }
+
+        function handleHash() {
+            const hash = window.location.hash;
+            if (hash === '#evi') {
+                switchMap('evi_map.html', document.getElementById('btn-evi'));
+            } else if (hash === '#clusters') {
+                switchMap('cluster_map.html', document.getElementById('btn-clusters'));
+            } else if (hash === '#mismatch') {
+                switchMap('mismatch_map.html', document.getElementById('btn-mismatch'));
+            }
+        }
+        
+        window.addEventListener('DOMContentLoaded', handleHash);
+        window.addEventListener('hashchange', handleHash);
     </script>
 </body>
 </html>
@@ -780,22 +847,22 @@ strategy_html_content = """<!DOCTYPE html>
         }
         .container {
             max-width: 1000px;
-            margin: 40px auto;
+            margin: 15px auto;
             padding: 0 20px;
         }
         .card {
             background: var(--card-bg);
             border-radius: 20px;
-            padding: 40px;
+            padding: 20px 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             border: 1px solid var(--border);
-            margin-bottom: 25px;
+            margin-bottom: 12px;
         }
         h2 {
             font-size: 20px;
             font-weight: 800;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            margin-top: 35px;
+            margin-bottom: 12px;
             color: var(--text-main);
             border-left: 4px solid var(--primary);
             padding-left: 12px;
@@ -807,17 +874,17 @@ strategy_html_content = """<!DOCTYPE html>
         h3 {
             font-size: 16px;
             font-weight: 700;
-            margin-top: 25px;
-            margin-bottom: 10px;
+            margin-top: 15px;
+            margin-bottom: 6px;
             color: var(--text-main);
         }
         p {
             font-size: 15px;
             color: #334155;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
         ul {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             padding-left: 20px;
         }
         li {
@@ -864,35 +931,11 @@ strategy_html_content = """<!DOCTYPE html>
         <div class="card">
             <h2 style="margin-bottom: 25px;">Prioritisation Strategy</h2>
             
-            <!-- Key Findings Callout (TASK 5) -->
-            <div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #bfdbfe; border-radius: 12px; padding: 25px; margin-bottom: 30px;">
-                <h3 style="margin-top: 0; color: #1e3a8a; font-size: 20px;">Key Findings</h3>
-                <p style="color: #1e3a8a; font-weight: 600; margin-bottom: 12px;">
-                    Our data-driven spatial analysis has identified the top 10 most vulnerable Local Government Areas (LGAs) in Northeast Nigeria for targeted intervention:
-                </p>
-                <ol style="margin-bottom: 15px; padding-left: 20px; color: #1e3a8a; font-weight: 500;">
-                    <li><strong>Maiduguri</strong> (Borno)</li>
-                    <li><strong>Gwoza</strong> (Borno)</li>
-                    <li><strong>Jere</strong> (Borno)</li>
-                    <li><strong>Bama</strong> (Borno)</li>
-                    <li><strong>Konduga</strong> (Borno)</li>
-                    <li><strong>Potiskum</strong> (Yobe)</li>
-                    <li><strong>Ngala</strong> (Borno)</li>
-                    <li><strong>Fune</strong> (Yobe)</li>
-                    <li><strong>Damboa</strong> (Borno)</li>
-                    <li><strong>Biu</strong> (Borno)</li>
-                </ol>
-                <ul style="margin-bottom: 0; padding-left: 20px; color: #1e3a8a;">
-                    <li style="margin-bottom: 6px;"><strong>Borno & Northern Concentration:</strong> Critical education vulnerability is heavily concentrated in northern and conflict-exposed areas, with 8 of the top 10 priority LGAs located in Borno State.</li>
-                    <li><strong>Infrastructure Mismatch Insights:</strong> The analysis reveals extreme mismatches between population demand and school coverage. In major urban centers (e.g. Maiduguri and Jere), high population density severely overburdens existing infrastructure. Even in areas with lower conflict intensity, structural access constraints remain severe due to extremely low school density.</li>
-                </ul>
-            </div>
-            
-            <h3>1. Context</h3>
+            <h2>1. Context</h2>
             <p>The Education Bridge Initiative (EBI) operates in conflict-affected regions where education access is highly uneven and rapidly changing. While field teams possess strong contextual knowledge, the organisation’s current planning approach relies on fragmented and unevenly available information. As a result, EBI lacks a systematic, data-driven mechanism to prioritise interventions across regions, particularly when conflict dynamics shift quickly. </p>
             <p>This proposal addresses that gap by introducing a scalable, data-driven prioritisation framework that complements field knowledge with geospatial and predictive analytics.</p>
             
-            <h3>2. Objectives</h3>
+            <h2>2. Objectives</h2>
             <p>The project aims to:</p>
             <ul>
                 <li><strong>Develop an Education Vulnerability Index (EVI)</strong> to identify areas with the greatest unmet education needs</li>
@@ -902,7 +945,7 @@ strategy_html_content = """<!DOCTYPE html>
                 <li><strong>Enable rapid updates</strong> as new data becomes available</li>
             </ul>
             
-            <h3>3. Approach</h3>
+            <h2>3. Approach</h2>
             <p>The proposed approach integrates geospatial analysis, statistical modelling, and machine learning into a unified prioritisation system.</p>
             
             <h3>3.1 Data Integration</h3>
@@ -925,6 +968,15 @@ strategy_html_content = """<!DOCTYPE html>
                 <li>Identify mismatches between population and school infrastructure</li>
                 <li>Allocate resources more effectively</li>
             </ul>
+            <p>
+            Analysis shows that conflict intensity and population pressure are the 
+            strongest contributors to vulnerability, while school density reduces risk 
+            where adequate infrastructure exists.
+            </p>
+            <p>
+            The consistency of results across multiple indicators confirms the robustness 
+            of the prioritisation approach.
+            </p>
             
             <h3>3.3 Risk Profiling (Clustering)</h3>
             <p>Using unsupervised machine learning (KMeans clustering), LGAs are grouped into distinct risk categories:</p>
@@ -944,25 +996,16 @@ strategy_html_content = """<!DOCTYPE html>
                 <li>School access indicators</li>
             </ul>
             <p>Outputs are expressed as probabilities, allowing EBI to anticipate emerging hotspots rather than reacting to crises after they occur.</p>
+            <p>Additionally, temporal modeling correlates conflict events with religious calendars and national events to isolate seasonal and holiday conflict spikes.</p>
             
             <h3>3.5 Decision-Support Tool</h3>
             <p>All outputs are integrated into an interactive dashboard, including EVI maps, risk classification maps, and priority ranking tables. These tools are designed for usability by non-technical staff and can directly inform planning and resource allocation decisions.</p>
             
-            <h3>3.6 Automation and Scalability</h3>
-            <p>The system includes an automated pipeline that updates outputs as new data becomes available. The methodology relies exclusively on open data and modular code, ensuring it can be applied to other countries, adapted to varying data availability, and updated without rebuilding the system.</p>
-            
-            <h3>4. Top Priority Areas for Education Intervention</h3>
+
+            <h2>4. Top Priority Areas for Education Intervention</h2>
             <p>The Education Vulnerability Index (EVI) identifies a clear concentration of high-priority LGAs in Northeast Nigeria, particularly in northern Borno State.</p>
             
-            <h4>4.1 Key Findings</h4>
-            <p>The analysis reveals that:</p>
-            <ul>
-                <li>The top 10 most vulnerable LGAs are characterised by a combination of high conflict intensity, large school-age populations, and low school density.</li>
-                <li>A majority of these LGAs fall into the “Emergency Zone” cluster, indicating simultaneous pressure from insecurity and insufficient education infrastructure.</li>
-                <li>Several LGAs show extreme mismatch between population and school coverage, suggesting that even in areas with lower conflict intensity, access constraints remain severe.</li>
-            </ul>
-            
-            <h4>4.2 Geographic Pattern</h4>
+            <h4>4.1 Geographic Pattern</h4>
             <p>Vulnerability is spatially concentrated, not evenly distributed. Northern and conflict-exposed LGAs show:</p>
             <ul>
                 <li>Significantly higher disruption risk probabilities</li>
@@ -970,7 +1013,7 @@ strategy_html_content = """<!DOCTYPE html>
             </ul>
             <p>This clustering of vulnerability indicates that targeted interventions in a small number of LGAs could generate disproportionately high impact.</p>
             
-            <h4>4.3 Implications for EBI</h4>
+            <h4>4.2 Implications for EBI</h4>
             <p>The findings suggest the need for differentiated intervention strategies:</p>
             <ol>
                 <li><strong>Emergency Zones (Highest Priority):</strong> Immediate deployment of temporary learning centres and mobile education units. Focus on restoring minimum access in high-risk areas.</li>
@@ -978,33 +1021,10 @@ strategy_html_content = """<!DOCTYPE html>
                 <li><strong>Infrastructure Gap Areas:</strong> Long-term investment in new school construction and rehabilitation of dormant facilities.</li>
             </ol>
             
-            <h4>4.4 Decision Insight</h4>
+            <h4>4.3 Decision Insight</h4>
             <p>Rather than distributing resources evenly, EBI should prioritise the top-ranked LGAs identified by the EVI, where education disruption risk is highest, infrastructure gaps are most severe, and population demand is most concentrated. This targeted approach ensures that limited resources are deployed where they will have the greatest impact.</p>
             
-            <!-- Model Insights and Limitations Section (TASK 6) -->
-            <h3>Model Insights and Limitations</h3>
-            
-            <h4>Which Variables Most Influence EVI?</h4>
-            <p>
-                Our statistical indexing and predictive machine learning models show that:
-            </p>
-            <ul>
-                <li><strong>Conflict Intensity (40% index weight / 53.8% feature importance):</strong> Measured by log-scaled fatalities and conflict recency. This is the single most dominant factor driving immediate risk of education disruption.</li>
-                <li><strong>School-Age Population Pressure (40% index weight / 19.5% feature importance):</strong> Measures demographic pressure. It represents the potential demand in an LGA, exposing structural mismatches when school infrastructure is absent or overstrained.</li>
-                <li><strong>School Access Density (20% index weight / 18.8% feature importance):</strong> Standardized school density per 1,000 children. Lower density strongly correlates with higher vulnerability scores.</li>
-            </ul>
-            
-            <h4>Data Limitations</h4>
-            <p>
-                To maintain a decision-ready yet realistic stance, the index acknowledges the following limitations:
-            </p>
-            <ul>
-                <li><strong>Temporal Resolution of Infrastructure:</strong> The school dataset (GRID3/iMMAP) offers a static census snapshot. It may not reflect real-time physical damage or community-led temporary reopenings.</li>
-                <li><strong>IDP Displacement Dynamics:</strong> Demographics are projected from UN OCHA/GRID3 SADD surveys. Sudden security events can cause rapid, localized migrations of internally displaced persons (IDPs) that outpace census updates.</li>
-                <li><strong>Reporting Gaps:</strong> ACLED conflict data, while updated weekly, is subject to reporting constraints or telecommunication outages in remote, high-risk areas.</li>
-            </ul>
-            
-            <h3>5. Proposed Activities</h3>
+            <h2>5. Proposed Activities</h2>
             <ul>
                 <li>Data acquisition and validation</li>
                 <li>Data cleaning and geospatial alignment</li>
@@ -1015,7 +1035,7 @@ strategy_html_content = """<!DOCTYPE html>
                 <li>Automation pipeline creation</li>
             </ul>
             
-            <h3>6. Deliverables</h3>
+            <h2>6. Deliverables</h2>
             <ul>
                 <li>Education Vulnerability Index dataset (LGA level)</li>
                 <li>Risk classification model and outputs</li>
@@ -1024,10 +1044,57 @@ strategy_html_content = """<!DOCTYPE html>
                 <li>Top-priority LGA ranking for intervention</li>
                 <li>Open-source repository with full data and methodology</li>
             </ul>
+
+            <h2>7. Operational Security and Seasonality</h2>
+            <p>
+                Security analysis of conflict events in Nigeria from 2011 to date indicates clear seasonal and holiday-related surges in violence. EBI operations should adjust activity levels accordingly:
+            </p>
+            <ul>
+                <li><strong>Holiday Activity Reduction:</strong> Conflict incidents rise by 14.4% during holidays and religious periods (Ramadan, Easter, and fixed national holidays), with fatalities increasing by 15.9% in the 7 days before and after these periods. Field teams should plan for skeletal operations during these windows.</li>
+                <li><strong>Dry Season Caution (January – April):</strong> Improved ground mobility during the dry season triggers a surge in offensive operations, peaking in February with an average of 12.8 fatalities/day. High-exposure field activities should be minimized.</li>
+                <li><strong>Rainy Season Window (June – October):</strong> Heavy rains and flooded roads decrease overall conflict frequency, creating safer operational windows for facility rehabilitation and team development.</li>
+            </ul>
+
+            <h2>8. Scalability</h2>
+            <p>
+                This approach requires only three data inputs:
+            </p>
+            <ul>
+                <li>Conflict event data</li>
+                <li>Population distribution</li>
+                <li>School locations</li>
+            </ul>
+            <p>
+                These datasets are globally available, allowing the model to be rapidly applied in other countries where EBI operates without redesign.
+            </p>
+
+            <h3>How to Replicate for a New Location</h3>
+            <p>EBI analysts can adapt this modeling framework to any new operational context by following these steps:</p>
+            <ol style="margin-left: 20px; margin-bottom: 20px; font-size: 15px; color: #334155; line-height: 1.6;">
+                <li style="margin-bottom: 8px;"><strong>Gather Data:</strong> Obtain boundary shapefiles/GeoJSON, conflict coordinates (e.g., ACLED), population stats, and school coordinates for your new location.</li>
+                <li style="margin-bottom: 8px;"><strong>Replace Raw Files:</strong> Place these datasets inside the <code>data/raw/</code> folder of the repository.</li>
+                <li style="margin-bottom: 8px;"><strong>Update clean_data.py:</strong> Open <code>scripts/clean_data.py</code> and update the file paths and column mappings to match the names of your new administrative units.</li>
+                <li style="margin-bottom: 8px;"><strong>Rerun Pipeline:</strong> Execute <code>python update_pipeline.py</code> in the terminal. The distance calculators, index engine, and map generators will dynamically rebuild the entire dashboard around your new region.</li>
+            </ol>
+
+            <h2>Model Insights and Limitations</h2>
+            <ul>
+                <li>Conflict intensity is the strongest predictor of disruption risk</li>
+                <li>School density reduces vulnerability where sufficient infrastructure exists</li>
+                <li>School data may be incomplete in remote areas</li>
+                <li>Conflict data may underreport events</li>
+                <li>Population data is based on estimates</li>
+            </ul>
+
+            <p style="font-weight: 600; margin-top: 25px; border-top: 1px solid var(--border); padding-top: 15px; color: var(--primary);">
+                This system enables EBI to move from reactive response to proactive, data-driven planning.
+            </p>
         </div>
     </div>
     <div class="footer">
         © 2026 Education Vulnerability Index (EVI) Nigeria Project • Deployed via GitHub Pages.
+        <br>
+        <a href="https://github.com/dubemgsm/EVINigeria" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 10px; display: inline-block;">GitHub Repository</a>
     </div>
 </body>
 </html>
@@ -1112,21 +1179,21 @@ priority_html_content = f"""<!DOCTYPE html>
         }}
         .container {{
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 15px auto;
             padding: 0 20px;
         }}
         .card {{
             background: var(--card-bg);
             border-radius: 20px;
-            padding: 40px;
+            padding: 20px 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             border: 1px solid var(--border);
-            margin-bottom: 25px;
+            margin-bottom: 12px;
         }}
         h2 {{
             font-size: 22px;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             color: var(--text-main);
             border-left: 4px solid var(--primary);
             padding-left: 12px;
@@ -1135,17 +1202,17 @@ priority_html_content = f"""<!DOCTYPE html>
         h3 {{
             font-size: 18px;
             font-weight: 700;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            margin-top: 15px;
+            margin-bottom: 8px;
             color: var(--text-main);
         }}
         p {{
             font-size: 15px;
             color: #334155;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }}
         ul, ol {{
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             padding-left: 20px;
         }}
         li {{
@@ -1157,7 +1224,7 @@ priority_html_content = f"""<!DOCTYPE html>
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin-top: 10px;
         }}
         .strategy-card {{
             border-radius: 12px;
@@ -1249,13 +1316,11 @@ priority_html_content = f"""<!DOCTYPE html>
     </div>
     
     <div class="container">
-        <div class="card">
-            <h2>Top Priority Areas for Education Intervention</h2>
-            <p>
-                The Education Vulnerability Index (EVI) identifies a clear concentration of high-priority LGAs in Northeast Nigeria, particularly in northern Borno State.
-            </p>
-            
-            <h3>Top 10 Priority LGAs requiring Intervention</h3>
+        <div style="background-color: #ef4444; color: white; padding: 12px 20px; border-radius: 8px; font-weight: bold; margin-bottom: 8px; font-size: 15px; text-align: center;">
+            Based on this analysis, EBI should prioritise intervention in these 10 LGAs immediately.
+        </div>
+        
+        <div class="card" style="padding-top: 10px;">
             <div class="table-container">
                 <table>
                     <thead>
@@ -1274,31 +1339,19 @@ priority_html_content = f"""<!DOCTYPE html>
                     </tbody>
                 </table>
             </div>
+            <p style="margin-top: 15px; font-weight: 600; color: var(--text-main); font-size: 14.5px;">
+                These LGAs represent the highest concentration of unmet education need, and immediate intervention will yield the greatest impact.
+            </p>
         </div>
 
         <div class="card">
-            <h2>Key Findings & Geographic Pattern</h2>
-            
-            <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
-                <div>
-                    <h3>Key Findings</h3>
-                    <p>The analysis reveals that:</p>
-                    <ul>
-                        <li><strong>Critical Drivers:</strong> The top 10 most vulnerable LGAs are characterised by a combination of high conflict intensity, large school-age populations, and low school density.</li>
-                        <li><strong>Infrastructure Pressure:</strong> A majority of these LGAs fall into the “Emergency Zone” cluster, indicating simultaneous pressure from insecurity and insufficient education infrastructure.</li>
-                        <li><strong>Access Severe Mismatches:</strong> Several LGAs show extreme mismatch between population and school coverage, suggesting that even in areas with lower conflict intensity, access constraints remain severe.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Geographic Pattern</h3>
-                    <p>Vulnerability is spatially concentrated, not evenly distributed. Northern and conflict-exposed LGAs show:</p>
-                    <ul>
-                        <li>Significantly higher disruption risk probabilities</li>
-                        <li>Lower availability of functioning schools</li>
-                    </ul>
-                    <p>This clustering of vulnerability indicates that targeted interventions in a small number of LGAs could generate disproportionately high impact.</p>
-                </div>
-            </div>
+            <h2>Geographic Pattern</h2>
+            <p>Vulnerability is spatially concentrated, not evenly distributed. Northern and conflict-exposed LGAs show:</p>
+            <ul>
+                <li>Significantly higher disruption risk probabilities</li>
+                <li>Lower availability of functioning schools</li>
+            </ul>
+            <p>This clustering of vulnerability indicates that targeted interventions in a small number of LGAs could generate disproportionately high impact.</p>
         </div>
 
         <div class="card">
@@ -1309,6 +1362,9 @@ priority_html_content = f"""<!DOCTYPE html>
                 <div class="strategy-card emergency">
                     <div class="strategy-title" style="color: var(--emergency);">
                         🔴 1. Emergency Zones (Highest Priority)
+                    </div>
+                    <div style="font-size: 12px; font-weight: bold; color: var(--emergency); margin-bottom: 8px; text-transform: uppercase;">
+                        Timeline: Immediate response (0–3 months)
                     </div>
                     <p style="font-size: 13px;">Immediate deployment of:</p>
                     <ul style="font-size: 13px; margin-bottom: 10px;">
@@ -1322,6 +1378,9 @@ priority_html_content = f"""<!DOCTYPE html>
                     <div class="strategy-title" style="color: var(--expansion);">
                         🟡 2. Expansion Zones
                     </div>
+                    <div style="font-size: 12px; font-weight: bold; color: var(--expansion); margin-bottom: 8px; text-transform: uppercase;">
+                        Timeline: Capacity expansion (3–12 months)
+                    </div>
                     <p style="font-size: 13px;">Rapid scaling of:</p>
                     <ul style="font-size: 13px; margin-bottom: 10px;">
                         <li>Classroom capacity</li>
@@ -1334,6 +1393,9 @@ priority_html_content = f"""<!DOCTYPE html>
                     <div class="strategy-title" style="color: var(--infrastructure);">
                         🔵 3. Infrastructure Gap Areas
                     </div>
+                    <div style="font-size: 12px; font-weight: bold; color: var(--infrastructure); margin-bottom: 8px; text-transform: uppercase;">
+                        Timeline: Long-term investment
+                    </div>
                     <p style="font-size: 13px;">Long-term investment in:</p>
                     <ul style="font-size: 13px; margin-bottom: 10px;">
                         <li>New school construction</li>
@@ -1343,6 +1405,18 @@ priority_html_content = f"""<!DOCTYPE html>
                 </div>
             </div>
             
+            <div class="insight-highlight" style="background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%); border-color: #fca5a5; margin-top: 20px; margin-bottom: 12px;">
+                <h3 style="margin-top: 0; color: #991b1b;">⚠️ Operational Security & Seasonality Alert</h3>
+                <p style="color: #991b1b; font-weight: 600; margin-bottom: 10px;">
+                    EBI field teams must exercise extreme precaution or reduce to skeletal operations during high-risk calendar windows:
+                </p>
+                <ul style="color: #7f1d1d; font-size: 13.5px; margin-bottom: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 6px;"><strong>Festive & Religious Days:</strong> Incidents spike by 14.4% on holidays (particularly Ramadan, Easter, and fixed national holidays), and fatalities spike by 15.9% in the 7-day windows surrounding them. Plan for skeletal operations.</li>
+                    <li style="margin-bottom: 6px;"><strong>Dry Season Peak (Jan – Apr):</strong> Tactical mobility drives a significant increase in conflict incidents and daily fatalities (peaking in February at 12.8 deaths/day). Operations during these months require advanced security clearance.</li>
+                    <li style="margin-bottom: 0;"><strong>Rainy Season (Jun – Oct):</strong> Heavy rains limit mobility, offering a lower-risk window for rebuilding and internal workshops.</li>
+                </ul>
+            </div>
+
             <div class="insight-highlight">
                 <h3 style="margin-top: 0; color: #1e3a8a;">💡 Decision Insight</h3>
                 <p style="color: #1e3a8a; margin-bottom: 0; font-weight: 500;">
@@ -1354,6 +1428,8 @@ priority_html_content = f"""<!DOCTYPE html>
     
     <div class="footer">
         © 2026 Education Vulnerability Index (EVI) Nigeria Project • Deployed via GitHub Pages.
+        <br>
+        <a href="https://github.com/dubemgsm/EVINigeria" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 10px; display: inline-block;">GitHub Repository</a>
     </div>
 </body>
 </html>

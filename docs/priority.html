@@ -72,21 +72,21 @@
         }
         .container {
             max-width: 1200px;
-            margin: 20px auto;
+            margin: 15px auto;
             padding: 0 20px;
         }
         .card {
             background: var(--card-bg);
             border-radius: 20px;
-            padding: 24px;
+            padding: 20px 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             border: 1px solid var(--border);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         h2 {
             font-size: 22px;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: var(--text-main);
             border-left: 4px solid var(--primary);
             padding-left: 12px;
@@ -95,17 +95,17 @@
         h3 {
             font-size: 18px;
             font-weight: 700;
-            margin-top: 20px;
+            margin-top: 15px;
             margin-bottom: 8px;
             color: var(--text-main);
         }
         p {
             font-size: 15px;
             color: #334155;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         ul, ol {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             padding-left: 20px;
         }
         li {
@@ -117,11 +117,11 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         .strategy-card {
             border-radius: 12px;
-            padding: 16px;
+            padding: 24px;
             background: #f8fafc;
             border-top: 4px solid var(--border);
             transition: transform 0.2s ease;
@@ -152,7 +152,7 @@
         .table-container {
             width: 100%;
             overflow-x: auto;
-            margin: 12px 0;
+            margin: 20px 0;
             border-radius: 8px;
             border: 1px solid var(--border);
         }
@@ -181,8 +181,8 @@
             background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
             border: 1px solid #bfdbfe;
             border-radius: 12px;
-            padding: 16px;
-            margin-top: 16px;
+            padding: 24px;
+            margin-top: 25px;
         }
         .footer {
             text-align: center;
@@ -209,12 +209,11 @@
     </div>
     
     <div class="container">
-        <div class="card">
-            <h2>Top 10 Priority LGAs requiring Intervention</h2>
-            <p>
-            The table below ranks LGAs by Education Vulnerability Index (EVI). 
-            Higher scores indicate greater urgency for intervention.
-            </p>
+        <div style="background-color: #ef4444; color: white; padding: 12px 20px; border-radius: 8px; font-weight: bold; margin-bottom: 8px; font-size: 15px; text-align: center;">
+            Based on this analysis, EBI should prioritise intervention in these 10 LGAs immediately.
+        </div>
+        
+        <div class="card" style="padding-top: 10px;">
             <div class="table-container">
                 <table>
                     <thead>
@@ -222,9 +221,9 @@
                             <th style="width: 80px; text-align: center;">Rank</th>
                             <th>LGA</th>
                             <th>State</th>
-                            <th>EVI</th>
-                            <th>Cluster</th>
-                            <th>Risk</th>
+                            <th>EVI Score</th>
+                            <th>Risk Profile Cluster</th>
+                            <th>Disruption Risk Prob.</th>
                             <th>Recommended Action</th>
                         </tr>
                     </thead>
@@ -333,30 +332,19 @@
                     </tbody>
                 </table>
             </div>
+            <p style="margin-top: 15px; font-weight: 600; color: var(--text-main); font-size: 14.5px;">
+                These LGAs represent the highest concentration of unmet education need, and immediate intervention will yield the greatest impact.
+            </p>
         </div>
 
         <div class="card">
-            <h2>Key Findings & Geographic Pattern</h2>
-            
-            <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
-                <div>
-                    <p>The analysis reveals that:</p>
-                    <ul>
-                        <li><strong>Critical Drivers:</strong> The top 10 most vulnerable LGAs are characterised by a combination of high conflict intensity, large school-age populations, and low school density.</li>
-                        <li><strong>Infrastructure Pressure:</strong> A majority of these LGAs fall into the “Emergency Zone” cluster, indicating simultaneous pressure from insecurity and insufficient education infrastructure.</li>
-                        <li><strong>Access Severe Mismatches:</strong> Several LGAs show extreme mismatch between population and school coverage, suggesting that even in areas with lower conflict intensity, access constraints remain severe.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Geographic Pattern</h3>
-                    <p>Vulnerability is spatially concentrated, not evenly distributed. Northern and conflict-exposed LGAs show:</p>
-                    <ul>
-                        <li>Significantly higher disruption risk probabilities</li>
-                        <li>Lower availability of functioning schools</li>
-                    </ul>
-                    <p>This clustering of vulnerability indicates that targeted interventions in a small number of LGAs could generate disproportionately high impact.</p>
-                </div>
-            </div>
+            <h2>Geographic Pattern</h2>
+            <p>Vulnerability is spatially concentrated, not evenly distributed. Northern and conflict-exposed LGAs show:</p>
+            <ul>
+                <li>Significantly higher disruption risk probabilities</li>
+                <li>Lower availability of functioning schools</li>
+            </ul>
+            <p>This clustering of vulnerability indicates that targeted interventions in a small number of LGAs could generate disproportionately high impact.</p>
         </div>
 
         <div class="card">
@@ -367,6 +355,9 @@
                 <div class="strategy-card emergency">
                     <div class="strategy-title" style="color: var(--emergency);">
                         🔴 1. Emergency Zones (Highest Priority)
+                    </div>
+                    <div style="font-size: 12px; font-weight: bold; color: var(--emergency); margin-bottom: 8px; text-transform: uppercase;">
+                        Timeline: Immediate response (0–3 months)
                     </div>
                     <p style="font-size: 13px;">Immediate deployment of:</p>
                     <ul style="font-size: 13px; margin-bottom: 10px;">
@@ -380,6 +371,9 @@
                     <div class="strategy-title" style="color: var(--expansion);">
                         🟡 2. Expansion Zones
                     </div>
+                    <div style="font-size: 12px; font-weight: bold; color: var(--expansion); margin-bottom: 8px; text-transform: uppercase;">
+                        Timeline: Capacity expansion (3–12 months)
+                    </div>
                     <p style="font-size: 13px;">Rapid scaling of:</p>
                     <ul style="font-size: 13px; margin-bottom: 10px;">
                         <li>Classroom capacity</li>
@@ -392,6 +386,9 @@
                     <div class="strategy-title" style="color: var(--infrastructure);">
                         🔵 3. Infrastructure Gap Areas
                     </div>
+                    <div style="font-size: 12px; font-weight: bold; color: var(--infrastructure); margin-bottom: 8px; text-transform: uppercase;">
+                        Timeline: Long-term investment
+                    </div>
                     <p style="font-size: 13px;">Long-term investment in:</p>
                     <ul style="font-size: 13px; margin-bottom: 10px;">
                         <li>New school construction</li>
@@ -401,7 +398,7 @@
                 </div>
             </div>
             
-            <div class="insight-highlight" style="background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%); border-color: #fca5a5; margin-top: 20px;">
+            <div class="insight-highlight" style="background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%); border-color: #fca5a5; margin-top: 20px; margin-bottom: 12px;">
                 <h3 style="margin-top: 0; color: #991b1b;">⚠️ Operational Security & Seasonality Alert</h3>
                 <p style="color: #991b1b; font-weight: 600; margin-bottom: 10px;">
                     EBI field teams must exercise extreme precaution or reduce to skeletal operations during high-risk calendar windows:
@@ -413,10 +410,10 @@
                 </ul>
             </div>
 
-            <div class="insight-highlight" style="margin-top: 20px;">
+            <div class="insight-highlight">
                 <h3 style="margin-top: 0; color: #1e3a8a;">💡 Decision Insight</h3>
                 <p style="color: #1e3a8a; margin-bottom: 0; font-weight: 500;">
-                    Rather than distributing resources evenly, EBI should prioritise the top-ranked LGAs identified by the EVI, where education disruption risk is highest, infrastructure gaps are most severe, and population demand is most concentrated. This targeted approach ensures that limited resources are deployed where they will have the greatest impact while observing security precautions.
+                    Rather than distributing resources evenly, EBI should prioritise the top-ranked LGAs identified by the EVI, where education disruption risk is highest, infrastructure gaps are most severe, and population demand is most concentrated. This targeted approach ensures that limited resources are deployed where they will have the greatest impact.
                 </p>
             </div>
         </div>

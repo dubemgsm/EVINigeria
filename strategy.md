@@ -1,11 +1,5 @@
 # Education Bridge Initiative (EBI): Prioritisation Strategy
 
-## Key Findings
-
-The model identifies a concentrated set of high-risk LGAs, with 7 of the top 10 located in northern Borno. These areas combine high conflict intensity, large school-age populations, and low school access, making them priority zones for immediate intervention.
-
----
-
 ## 1. Context
 The Education Bridge Initiative (EBI) operates in conflict-affected regions where education access is highly uneven and rapidly changing. While field teams possess strong contextual knowledge, the organisation’s current planning approach relies on fragmented and unevenly available information. As a result, EBI lacks a systematic, data-driven mechanism to prioritise interventions across regions, particularly when conflict dynamics shift quickly.
 
@@ -46,6 +40,8 @@ All components are normalised and weighted to produce a comparable score across 
 
 Analysis shows that conflict intensity and population pressure are the strongest contributors to vulnerability, while school density reduces risk where adequate infrastructure exists.
 
+The consistency of results across multiple indicators confirms the robustness of the prioritisation approach.
+
 ### 3.3 Risk Profiling (Clustering)
 Using unsupervised machine learning (K-Means clustering), LGAs are grouped into distinct risk categories:
 - **Emergency zones**: high conflict, low access.
@@ -84,23 +80,14 @@ The system includes an automated pipeline that updates outputs as new data becom
 ## 4. Top Priority Areas for Education Intervention
 The Education Vulnerability Index (EVI) identifies a clear concentration of high-priority LGAs in Northeast Nigeria, particularly in northern Borno State.
 
-### Key Findings
-The analysis reveals that:
-- The top 10 most vulnerable LGAs are characterised by a combination of:
-  - high conflict intensity
-  - large school-age populations
-  - low school density
-- A majority of these LGAs fall into the “Emergency Zone” cluster, indicating simultaneous pressure from insecurity and insufficient education infrastructure.
-- Several LGAs show extreme mismatch between population and school coverage, suggesting that even in areas with lower conflict intensity, access constraints remain severe.
-
-### Geographic Pattern
+### 4.1 Geographic Pattern
 - Vulnerability is spatially concentrated, not evenly distributed.
 - Northern and conflict-exposed LGAs show:
   - significantly higher disruption risk probabilities
   - lower availability of functioning schools
 - This clustering of vulnerability indicates that targeted interventions in a small number of LGAs could generate disproportionately high impact.
 
-### Implications for EBI
+### 4.2 Implications for EBI
 The findings suggest the need for differentiated intervention strategies:
 1. **Emergency Zones (Highest Priority)**
    - Immediate deployment of:
@@ -117,7 +104,7 @@ The findings suggest the need for differentiated intervention strategies:
      - new school construction
      - rehabilitation of dormant facilities
 
-### Decision Insight
+### 4.3 Decision Insight
 Rather than distributing resources evenly, EBI should prioritise the top-ranked LGAs identified by the EVI, where:
 - education disruption risk is highest
 - infrastructure gaps are most severe
@@ -125,17 +112,7 @@ Rather than distributing resources evenly, EBI should prioritise the top-ranked 
 
 This targeted approach ensures that limited resources are deployed where they will have the greatest impact.
 
----
 
-## Model Insights and Limitations
-
-- Conflict intensity is the strongest predictor of disruption risk
-- School density reduces vulnerability where sufficient infrastructure exists
-- School data may be incomplete in remote areas
-- Conflict data may underreport events in inaccessible locations
-- Population estimates rely on projections
-
----
 
 ## 5. Proposed Activities
 1. Data acquisition and validation.
@@ -170,10 +147,30 @@ Security analysis of conflict events in Nigeria from 2011 to date indicates clea
 
 ## 8. Scalability
 
-This approach requires only three data inputs:
+This approach requires only three inputs:
+- conflict data
+- population data
+- school location data
 
-- Conflict event data
-- Population distribution
-- School locations
+These datasets are globally available, allowing the model to be applied across other EBI operational contexts without redesign.
 
-These datasets are globally available, allowing the model to be rapidly applied in other countries where EBI operates without redesign.
+### How to Replicate for a New Location
+EBI analysts can adapt this modeling framework to any new operational context by following these steps:
+1. **Gather Data**: Obtain boundary shapefiles/GeoJSON, conflict coordinates (e.g., ACLED), population stats, and school coordinates for your new location.
+2. **Replace Raw Files**: Place these datasets inside the `data/raw/` folder of the repository.
+3. **Update clean_data.py**: Open `scripts/clean_data.py` and update the file paths and column mappings to match the names of your new administrative units.
+4. **Rerun Pipeline**: Execute `python update_pipeline.py` in the terminal. The distance calculators, index engine, and map generators will dynamically rebuild the entire dashboard around your new region.
+
+---
+
+## Model Insights and Limitations
+
+- Conflict intensity is the strongest predictor of disruption risk
+- School density reduces vulnerability where sufficient infrastructure exists
+- School data may be incomplete in remote areas
+- Conflict data may underreport events
+- Population data is based on estimates
+
+---
+
+This system enables EBI to move from reactive response to proactive, data-driven planning.
