@@ -156,6 +156,16 @@ This targeted approach ensures that limited resources are deployed where they wi
 
 ---
 
+## Operational Security and Seasonality
+
+Security analysis of conflict events in Nigeria from 2011 to date indicates clear seasonal and holiday-related surges in violence. EBI operations should adjust activity levels accordingly:
+
+- **Holiday Activity Reduction:** Conflict incidents rise by 14.4% during holidays and religious periods (Ramadan, Easter, and fixed national holidays), with fatalities increasing by 15.9% in the 7 days before and after these periods. Field teams should plan for skeletal operations during these windows.
+- **Dry Season Caution (January – April):** Improved ground mobility during the dry season triggers a surge in offensive operations, peaking in February with an average of 12.8 fatalities/day. High-exposure field activities should be minimized.
+- **Rainy Season Window (June – October):** Heavy rains and flooded roads decrease overall conflict frequency, creating safer operational windows for facility rehabilitation and team development.
+
+---
+
 ## Scalability
 
 This approach requires only three data inputs:

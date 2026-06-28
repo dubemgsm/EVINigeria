@@ -10,6 +10,12 @@ This project identifies the 10 highest-priority LGAs for education intervention 
 - Strategy: https://dubemgsm.github.io/EVINigeria/strategy.html
 - Priority Areas: https://dubemgsm.github.io/EVINigeria/priority.html
 
+## Operational Security & Seasonality
+
+EBI field teams must exercise extreme precaution or reduce to skeletal operations during high-risk calendar windows identified in the ACLED conflict analysis (2011-date):
+- **Holiday Spikes:** Conflict incidents rise by 14.4% on public/religious holidays (especially Ramadan, Easter, and fixed national holidays), with fatalities spiking by 15.9% within 7 days of these periods.
+- **Seasonal Mobility:** Dry season months (January to April) experience elevated conflict frequency and fatalities (peaking in February at 12.8 fatalities/day). Rainy season months (June to October) have lower incident rates due to restricted road mobility.
+
 An interactive data science and spatial analysis platform that maps school-level vulnerability, resource distribution, and predictive disruption risks across **65 Local Government Areas (LGAs)** in Borno, Adamawa, and Yobe (BAY) States, Northeast Nigeria.
 
 The complete dashboard and interactive Leaflet maps are hosted publicly at:  
