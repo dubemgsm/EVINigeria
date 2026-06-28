@@ -1,0 +1,66 @@
+state,lga,pcode,conflict_count,fatalities
+Adamawa,Demsa,NG002001,13,125
+Adamawa,Fufore,NG002002,0,0
+Adamawa,Ganye,NG002003,1,0
+Adamawa,Girei,NG002004,32,145
+Adamawa,Gombi,NG002005,19,131
+Adamawa,Guyuk,NG002006,1,4
+Adamawa,Hong,NG002007,24,257
+Adamawa,Jada,NG002008,0,0
+Adamawa,Lamurde,NG002009,9,104
+Adamawa,Madagali,NG002010,96,922
+Adamawa,Maiha,NG002011,7,94
+Adamawa,Mayo-Belwa,NG002012,1,4
+Adamawa,Michika,NG002013,25,572
+Adamawa,Mubi North,NG002014,23,499
+Adamawa,Mubi South,NG002015,7,164
+Adamawa,Numan,NG002016,14,278
+Adamawa,Shelleng,NG002017,1,13
+Adamawa,Song,NG002018,2,110
+Adamawa,Toungo,NG002019,0,0
+Adamawa,Yola North,NG002020,0,0
+Adamawa,Yola South,NG002021,8,139
+Borno,Abadam,NG008001,175,2525
+Borno,Askira/Uba,NG008002,73,498
+Borno,Bama,NG008003,327,2671
+Borno,Bayo,NG008004,0,0
+Borno,Biu,NG008005,100,668
+Borno,Chibok,NG008006,79,545
+Borno,Damboa,NG008007,240,2193
+Borno,Dikwa,NG008008,110,840
+Borno,Gubio,NG008009,47,487
+Borno,Guzamala,NG008010,52,433
+Borno,Gwoza,NG008011,474,5365
+Borno,Hawul,NG008012,25,226
+Borno,Jere,NG008013,112,627
+Borno,Kaga,NG008014,95,846
+Borno,Kala/Balge,NG008015,67,863
+Borno,Konduga,NG008016,409,3184
+Borno,Kukawa,NG008017,223,2803
+Borno,Kwaya Kusar,NG008018,1,2
+Borno,Mafa,NG008019,130,861
+Borno,Magumeri,NG008020,66,506
+Borno,Maiduguri,NG008021,409,3640
+Borno,Marte,NG008022,127,1369
+Borno,Mobbar,NG008023,74,835
+Borno,Monguno,NG008024,87,1013
+Borno,Ngala,NG008025,149,1897
+Borno,Nganzai,NG008026,67,642
+Borno,Shani,NG008027,4,13
+Yobe,Bade,NG036001,7,36
+Yobe,Bursari,NG036002,5,31
+Yobe,Damaturu,NG036003,62,813
+Yobe,Fika,NG036004,4,14
+Yobe,Fune,NG036005,20,106
+Yobe,Geidam,NG036006,37,272
+Yobe,Gujba,NG036007,83,842
+Yobe,Gulani,NG036008,7,51
+Yobe,Jakusko,NG036009,0,0
+Yobe,Karasuwa,NG036010,2,11
+Yobe,Machina,NG036011,0,0
+Yobe,Nangere,NG036012,1,0
+Yobe,Nguru,NG036013,0,0
+Yobe,Potiskum,NG036014,41,331
+Yobe,Tarmuwa,NG036015,14,241
+Yobe,Yunusari,NG036016,16,64
+Yobe,Yusufari,NG036017,0,0

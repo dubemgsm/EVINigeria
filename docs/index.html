@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Vulnerability Dashboard (BAY States)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --primary: #3b82f6;
+            --primary-grad: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --accent: #ef4444;
+            --accent-grad: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+            --border: #e2e8f0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 0;
+        }
+        
+        .header {
+            background: var(--primary-grad);
+            color: #ffffff;
+            padding: 40px 5%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-top: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-button {
+            background-color: rgba(255,255,255,0.15);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .nav-button:hover {
+            background-color: #ffffff;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .nav-button.active {
+            background-color: #ffffff;
+            color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        /* KPI Cards */
+        .kpi-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease;
+        }
+        
+        .kpi-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .kpi-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+        
+        .kpi-value {
+            font-size: 28px;
+            font-weight: 800;
+            margin-top: 10px;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+        
+        .kpi-subtext {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Layout Grid Sections */
+        .full-width {
+            grid-column: span 4;
+        }
+        
+        .split-left {
+            grid-column: span 3;
+        }
+        
+        .split-right {
+            grid-column: span 1;
+        }
+        
+        @media (max-width: 1024px) {
+            .split-left, .split-right, .kpi-card {
+                grid-column: span 4;
+            }
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid var(--border);
+            margin-bottom: 25px;
+        }
+        
+        .card h2 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+            letter-spacing: -0.5px;
+        }
+        
+        /* Styled Table */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 14px;
+        }
+        
+        th {
+            background-color: #f1f5f9;
+            color: var(--text-muted);
+            font-weight: 700;
+            padding: 14px 18px;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+        
+        tr:hover td {
+            background-color: #f8fafc;
+        }
+        
+        /* Sidebar/Methodology Details */
+        .methodology-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border);
+        }
+        
+        .methodology-item:last-child {
+            border-bottom: none;
+        }
+        
+        .methodology-title {
+            font-weight: bold;
+            font-size: 13px;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+        
+        .methodology-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        .formula-box {
+            background-color: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 11px;
+            margin-top: 10px;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            color: #0f172a;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 12px;
+            border-top: 1px solid var(--border);
+            background-color: #ffffff;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <h1>Education Vulnerability Dashboard</h1>
+            <p>Borno, Adamawa, and Yobe (BAY) States, Nigeria • LGA Unit of Analysis</p>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-button active">Dashboard</a>
+            <a href="maps.html" class="nav-button">Interactive Maps</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Stats Row -->
+        <div class="kpi-card">
+            <div>
+                <span class="kpi-label">School-Age Children</span>
+                <div class="kpi-value">9,621,342</div>
+            </div>
+            <div class="kpi-subtext">Total target population in BAY</div>
+        </div>
+        
+        <div class="kpi-card">
+            <div>
+                <span class="kpi-label">Total Schools</span>
+                <div class="kpi-value">10,433</div>
+            </div>
+            <div class="kpi-subtext">Registered educational facilities</div>
+        </div>
+        
+        <div class="kpi-card">
+            <div>
+                <span class="kpi-label">Conflict Incidents</span>
+                <div class="kpi-value">4,304</div>
+            </div>
+            <div class="kpi-subtext">Fatalities: <span style="font-weight:bold; color:red;">41,925</span></div>
+        </div>
+        
+        <div class="kpi-card" style="border-left: 4px solid var(--accent);">
+            <div>
+                <span class="kpi-label">Highest Vulnerability LGA</span>
+                <div class="kpi-value" style="font-size:22px; color:var(--accent); word-break: break-all;">Maiduguri (Borno)</div>
+            </div>
+            <div class="kpi-subtext">Rank #1 on EVI Score</div>
+        </div>
+        
+        <!-- Table & Sidebar Split Row -->
+        <div class="card split-left">
+            <h2>Top 10 Priority LGAs requiring Intervention</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 80px; text-align: center;">Rank</th>
+                            <th>LGA</th>
+                            <th>State</th>
+                            <th>EVI Score</th>
+                            <th>Risk Profile Cluster</th>
+                            <th>Disruption Risk Prob.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+    <tr>
+        <td style="font-weight: bold; text-align: center; color: #1a1a1a;">#1</td>
+        <td style="font-weight: 600; color: #111;">Maiduguri</td>
+        <td>Borno</td>
+        <td style="font-family: monospace; font-weight: bold; color: #3b82f6;">1.0000</td>
+        <td><span style="padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; background-color: #fef3e6; color: #b26a15; border: 1px solid #fcdbb5;">Expansion</span></td>
+        <td style="font-family: monospace; font-weight: 600; color: #ef4444;">100.0%</td>
+    </tr>
+    
+    <tr>
+        <td style="font-weight: bold; text-align: center; color: #1a1a1a;">#2</td>
+        <td style="font-weight: 600; color: #111;">Gwoza</td>
+        <td>Borno</td>
+        <td style="font-family: monospace; font-weight: bold; color: #3b82f6;">0.9111</td>
+        <td><span style="padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; background-color: #fce8e6; color: #a82e2e; border: 1px solid #f5c2c2;">Emergency</span></td>
+        <td style="font-family: monospace; font-weight: 600; color: #ef4444;">99.8%</td>
+    </tr>
+    
+    <tr>
+        <td style="font-weight: bold; text-align: center; color: #1a1a1a;">#3</td>
+        <td style="font-weight: 600; color: #111;">Jere</td>
+        <td>Borno</td>
+        <td style="font-family: monospace; font-weight: bold; color: #3b82f6;">0.6978</td>
+        <td><span style="padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; background-color: #fef3e6; color: #b26a15; border: 1px solid #fcdbb5;">Expansion</span></td>
+        <td style="font-family: monospace; font-weight: 600; color: #ef4444;">99.3%</td>
+    </tr>
+    
+    <tr>
+        <td style="font-weight: bold; text-align: center; color: #1a1a1a;">#4</td>
+        <td style="font-weight: 600; color: #111;">Bama</td>
+        <td>Borno</td>
+        <td style="font-family: monospace; font-weight: bold; color: #3b82f6;">0.6888</td>
+        <td><span style="padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; background-color: #fce8e6; color: #a82e2e; border: 1px solid #f5c2c2;">Emergency</span></td>
+        <td style="font-family: monospace; font-weight: 600; color: #ef4444;">97.5%</td>
+    </tr>
+    
+    <tr>
+        <td style="font-weight: bold; text-align: center; color: #1a1a1a;">#5</td>
+        <td style="font-weight: 600; color: #111;">Konduga</td>
+        <td>Borno</td>
+        <td style="font-family: monospace; font-weight: bold; color: #3b82f6;">0.6710</td>
+        <td><span style="padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; background-color: #fce8e6; color: #a82e2e; border: 1px solid #f5c2c2;">Emergency</span></td>
+        <td style="font-family: monospace; font-weight: 600; color: #ef4444;">97.3%</td>
+    </tr>
+    
+    <tr>
+        <td style="font-weight: bold; text-align: center; color: #1a1a1a;">#6</td>
+        <td style="font-weight: 600; color: #111;">Potiskum</td>
+        <td>Yobe</td>
+        <td style="font-family: monospace; font-weight: bold; color: #3b82f6;">0.5616</td>
+        <td><span style="padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; background-color: #fef3e6; color: #b26a15; border: 1px solid #fcdbb5;">Expansion</span></td>
+        <td style="font-family: monospace; font-weight: 600; color: #ef4444;">100.0%</td>
+    </tr>
+    
+    <tr>
+        <td style="font-weight: bold; text-align: center; color: #1a1a1a;">#7</td>
+        <td style="font-weight: 600; color: #111;">Ngala</td>
+        <td>Borno</td>
+        <td style="font-family: monospace; font-weight: bold; color: #3b82f6;">0.5452</td>
+        <td><span style="padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; background-color: #eaf6fa; color: #1e7085; border: 1px solid #c7ebf3;">Infrastructure gap</span></td>
+        <td style="font-family: monospace; font-weight: 600; color: #ef4444;">99.9%</td>
+    </tr>
+    
+    <tr>
+        <td style="font-weight: bold; text-align: center; color: #1a1a1a;">#8</td>
+        <td style="font-weight: 600; color: #111;">Fune</td>
+        <td>Yobe</td>
+        <td style="font-family: monospace; font-weight: bold; color: #3b82f6;">0.5334</td>
+        <td><span style="padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; background-color: #fef3e6; color: #b26a15; border: 1px solid #fcdbb5;">Expansion</span></td>
+        <td style="font-family: monospace; font-weight: 600; color: #ef4444;">95.4%</td>
+    </tr>
+    
+    <tr>
+        <td style="font-weight: bold; text-align: center; color: #1a1a1a;">#9</td>
+        <td style="font-weight: 600; color: #111;">Damboa</td>
+        <td>Borno</td>
+        <td style="font-family: monospace; font-weight: bold; color: #3b82f6;">0.5225</td>
+        <td><span style="padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; background-color: #fce8e6; color: #a82e2e; border: 1px solid #f5c2c2;">Emergency</span></td>
+        <td style="font-family: monospace; font-weight: 600; color: #ef4444;">98.6%</td>
+    </tr>
+    
+    <tr>
+        <td style="font-weight: bold; text-align: center; color: #1a1a1a;">#10</td>
+        <td style="font-weight: 600; color: #111;">Biu</td>
+        <td>Borno</td>
+        <td style="font-family: monospace; font-weight: bold; color: #3b82f6;">0.5181</td>
+        <td><span style="padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; background-color: #fef3e6; color: #b26a15; border: 1px solid #fcdbb5;">Expansion</span></td>
+        <td style="font-family: monospace; font-weight: 600; color: #ef4444;">100.0%</td>
+    </tr>
+    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card split-right">
+            <h2>Index Construction</h2>
+            <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">
+                The index identifies LGAs where conflict intensity and population pressure outstrip local school infrastructure.
+            </div>
+            
+            <div class="methodology-item">
+                <div class="methodology-title">Conflict Intensity (40%)</div>
+                <div class="methodology-desc">Decay-weighted over time (5-year half-life) and log-scaled fatalities to manage incident anomalies.</div>
+            </div>
+            
+            <div class="methodology-item">
+                <div class="methodology-title">Population Pressure (40%)</div>
+                <div class="methodology-desc">Total volume of school-age children (girls and boys) situated within the LGA.</div>
+            </div>
+            
+            <div class="methodology-item">
+                <div class="methodology-title">School Access Density (-20%)</div>
+                <div class="methodology-desc">Standardized school density representing facilities available per 1,000 children.</div>
+            </div>
+            
+            <div class="formula-box">
+                EVI = 0.4*Conflict_norm + 0.4*PopPressure_norm - 0.2*SchoolDensity_norm
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        © 2026 Education Vulnerability Index (EVI) Nigeria Project • Powered by standard WGS84 GIS mappings and Leaflet interactive visualizations.
+    </div>
+</body>
+</html>

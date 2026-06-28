@@ -1,0 +1,66 @@
+state,lga,pcode,school_count,primary-schools,private-schools,public-schools,religious-schools,secondary-schools,tertiary-schools
+Adamawa,Demsa,NG002001,316,121,7,151,0,37,0
+Adamawa,Fufore,NG002002,447,183,9,216,0,38,1
+Adamawa,Ganye,NG002003,306,124,17,135,0,30,0
+Adamawa,Girei,NG002004,292,115,29,119,0,28,1
+Adamawa,Gombi,NG002005,335,135,11,156,1,32,0
+Adamawa,Guyuk,NG002006,288,104,12,131,0,40,1
+Adamawa,Hong,NG002007,493,176,37,207,0,71,2
+Adamawa,Jada,NG002008,326,137,16,148,1,24,0
+Adamawa,Lamurde,NG002009,212,82,4,103,0,23,0
+Adamawa,Madagali,NG002010,210,82,2,103,0,23,0
+Adamawa,Maiha,NG002011,218,87,8,100,2,21,0
+Adamawa,Mayo-Belwa,NG002012,366,147,14,167,1,36,1
+Adamawa,Michika,NG002013,237,93,6,113,0,25,0
+Adamawa,Mubi North,NG002014,263,100,24,100,2,35,2
+Adamawa,Mubi South,NG002015,253,96,21,100,4,32,0
+Adamawa,Numan,NG002016,216,78,14,94,1,28,1
+Adamawa,Shelleng,NG002017,149,60,6,68,1,14,0
+Adamawa,Song,NG002018,328,131,11,152,0,33,1
+Adamawa,Toungo,NG002019,148,70,6,68,0,4,0
+Adamawa,Yola North,NG002020,318,110,79,73,1,53,2
+Adamawa,Yola South,NG002021,378,132,68,121,2,50,5
+Borno,Abadam,NG008001,10,7,0,2,0,1,0
+Borno,Askira/Uba,NG008002,198,88,4,84,0,22,0
+Borno,Bama,NG008003,150,70,3,58,1,17,1
+Borno,Bayo,NG008004,100,43,0,48,0,9,0
+Borno,Biu,NG008005,141,69,1,50,0,21,0
+Borno,Chibok,NG008006,105,46,2,46,0,11,0
+Borno,Damboa,NG008007,200,92,1,99,0,8,0
+Borno,Dikwa,NG008008,72,38,0,31,0,3,0
+Borno,Gubio,NG008009,41,19,0,19,1,2,0
+Borno,Guzamala,NG008010,33,15,0,14,0,4,0
+Borno,Gwoza,NG008011,93,69,0,9,6,9,0
+Borno,Hawul,NG008012,246,117,3,104,0,22,0
+Borno,Jere,NG008013,108,45,6,41,1,14,1
+Borno,Kaga,NG008014,75,36,0,34,0,5,0
+Borno,Kala/Balge,NG008015,57,26,0,25,0,6,0
+Borno,Konduga,NG008016,135,64,1,64,0,6,0
+Borno,Kukawa,NG008017,91,35,0,44,0,12,0
+Borno,Kwaya Kusar,NG008018,45,39,0,4,0,2,0
+Borno,Mafa,NG008019,74,38,0,34,0,2,0
+Borno,Magumeri,NG008020,52,30,0,17,1,4,0
+Borno,Maiduguri,NG008021,157,39,34,37,1,42,4
+Borno,Marte,NG008022,49,35,0,11,0,3,0
+Borno,Mobbar,NG008023,35,18,1,14,0,2,0
+Borno,Monguno,NG008024,71,32,1,33,0,5,0
+Borno,Ngala,NG008025,37,23,0,10,0,4,0
+Borno,Nganzai,NG008026,41,23,0,17,0,1,0
+Borno,Shani,NG008027,131,65,0,55,2,9,0
+Yobe,Bade,NG036001,108,43,0,52,1,12,0
+Yobe,Bursari,NG036002,120,55,1,59,0,4,1
+Yobe,Damaturu,NG036003,43,22,0,18,1,2,0
+Yobe,Fika,NG036004,137,64,1,61,0,11,0
+Yobe,Fune,NG036005,231,100,5,111,0,13,2
+Yobe,Geidam,NG036006,50,22,1,22,0,5,0
+Yobe,Gujba,NG036007,114,49,5,51,0,8,1
+Yobe,Gulani,NG036008,103,46,1,50,0,6,0
+Yobe,Jakusko,NG036009,161,77,0,78,0,6,0
+Yobe,Karasuwa,NG036010,100,44,2,48,0,6,0
+Yobe,Machina,NG036011,64,27,1,31,0,5,0
+Yobe,Nangere,NG036012,119,54,0,58,0,7,0
+Yobe,Nguru,NG036013,105,40,2,50,0,13,0
+Yobe,Potiskum,NG036014,130,44,11,53,0,22,0
+Yobe,Tarmuwa,NG036015,70,31,1,34,0,4,0
+Yobe,Yunusari,NG036016,86,36,0,43,0,7,0
+Yobe,Yusufari,NG036017,46,27,0,15,1,3,0
