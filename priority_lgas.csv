@@ -1,0 +1,11 @@
+LGA,EVI score,cluster,disruption probability,recommended_action
+Maiduguri,1.0,Expansion,1.0,Increase classroom capacity
+Gwoza,0.9111039843853614,Emergency,0.9983333333333332,Temporary learning centres + emergency response
+Jere,0.6977747749482537,Expansion,0.9933333333333332,Increase classroom capacity
+Bama,0.6887853960528664,Emergency,0.9751948051948052,Temporary learning centres + emergency response
+Konduga,0.6709515946209518,Emergency,0.9730409356725144,Temporary learning centres + emergency response
+Potiskum,0.5616066797993053,Expansion,1.0,Increase classroom capacity
+Ngala,0.5451698464191282,Infrastructure gap,0.9988888888888888,Build new schools
+Fune,0.5334090737338211,Expansion,0.9544786324786324,Increase classroom capacity
+Damboa,0.5224920536628024,Emergency,0.9859976456292244,Temporary learning centres + emergency response
+Biu,0.5181003054103892,Expansion,1.0,Increase classroom capacity

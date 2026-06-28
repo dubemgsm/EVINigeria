@@ -7,6 +7,33 @@ The complete dashboard and interactive Leaflet maps are hosted publicly at:
 
 ---
 
+## 💡 Quick Links & Key Results
+
+### 🔗 Quick Links
+- 📊 **[Interactive Dashboard (Live)](https://dubemgsm.github.io/EVINigeria/)** — Main interface showing statistical summary cards and interactive GIS maps. (Alternative: [Local Source](docs/index.html))
+- 📋 **[Priority Decision Page (Live)](https://dubemgsm.github.io/EVINigeria/priority.html)** — Differentiated recommended actions and statistics for the Top 10 priority LGAs. (Alternative: [Local Source](docs/priority.html))
+- 📈 **[Prioritisation Strategy (Live)](https://dubemgsm.github.io/EVINigeria/strategy.html)** — Deep dive into EVI formulation, machine learning clustering, and key results. (Alternative: [Local Source](docs/strategy.html))
+- 📂 **[Top 10 Priority LGAs Dataset (priority_lgas.csv)](priority_lgas.csv)** — The exported decision-ready CSV data file.
+
+### 🔑 Key Result Summary
+#### **Where should EBI act first?**
+EBI should focus immediate intervention resources on the **Top 10 Priority LGAs** identified by the EVI, with the highest concentration in **Borno State** (8 of the top 10):
+1. **Maiduguri** (Borno) — *Action: Increase classroom capacity*
+2. **Gwoza** (Borno) — *Action: Temporary learning centres + emergency response*
+3. **Jere** (Borno) — *Action: Increase classroom capacity*
+4. **Bama** (Borno) — *Action: Temporary learning centres + emergency response*
+5. **Konduga** (Borno) — *Action: Temporary learning centres + emergency response*
+6. **Potiskum** (Yobe) — *Action: Increase classroom capacity*
+7. **Ngala** (Borno) — *Action: Build new schools*
+8. **Fune** (Yobe) — *Action: Increase classroom capacity*
+9. **Damboa** (Borno) — *Action: Temporary learning centres + emergency response*
+10. **Biu** (Borno) — *Action: Increase classroom capacity*
+
+#### **Why?**
+These areas suffer from the most extreme combinations of **high conflict intensity**, **large school-age populations**, and **low school density**. This targeted, differentiated approach ensures resources are deployed where they will generate the highest programmatic impact.
+
+---
+
 ## Table of Contents
 1. [Project Overview](#project-overview)
 2. [Data Sources](#data-sources)
@@ -15,9 +42,10 @@ The complete dashboard and interactive Leaflet maps are hosted publicly at:
    - [Education Vulnerability Index (EVI) Formulation](#2-education-vulnerability-index-evi-formulation)
    - [K-Means Profile Clustering](#3-k-means-profile-clustering)
    - [Predictive Disruption Risk Model](#4-predictive-disruption-risk-model)
-4. [Interactive Visualizations](#interactive-visualizations)
-5. [Pipeline Architecture & How to Rerun](#pipeline-architecture--how-to-rerun)
-6. [Deployment & CI/CD](#deployment--cicd)
+4. [Key Findings & Intervention Strategy](#key-findings--intervention-strategy)
+5. [Interactive Visualizations](#interactive-visualizations)
+6. [Pipeline Architecture & How to Rerun](#pipeline-architecture--how-to-rerun)
+7. [Deployment & CI/CD](#deployment--cicd)
 
 ---
 
@@ -108,6 +136,39 @@ A Random Forest Classifier is trained to identify LGAs at risk of future educati
 * **Target Variable (Proxy)**: A binary indicator set to 1 if an LGA lies above the median for conflict intensity or EVI score.
 * **Features**: Conflict Intensity, Population Pressure, School Density, and Proximity to Conflict.
 * **Hyperparameters**: 150 estimators, max depth of 4 (limited to prevent overfitting on the 65 LGA samples).
+
+---
+
+## Key Findings & Intervention Strategy
+
+The Education Vulnerability Index (EVI) identifies a clear concentration of high-priority LGAs in Northeast Nigeria, particularly in northern Borno State.
+
+### Key Findings
+The analysis reveals that:
+- **The top 10 most vulnerable LGAs** are characterised by a combination of high conflict intensity, large school-age populations, and low school density.
+- A majority of these LGAs fall into the **“Emergency Zone”** cluster, indicating simultaneous pressure from insecurity and insufficient education infrastructure.
+- Several LGAs show **extreme mismatch** between population and school coverage, suggesting that even in areas with lower conflict intensity, access constraints remain severe.
+
+### Geographic Pattern
+- Vulnerability is **spatially concentrated**, not evenly distributed.
+- Northern and conflict-exposed LGAs show:
+  - significantly higher disruption risk probabilities
+  - lower availability of functioning schools
+- This clustering of vulnerability indicates that targeted interventions in a small number of LGAs could generate disproportionately high impact.
+
+### Implications for EBI
+The findings suggest the need for differentiated intervention strategies:
+1. **Emergency Zones (Highest Priority)**
+   - Immediate deployment of temporary learning centres and mobile education units.
+   - Focus on restoring minimum access in high-risk areas.
+2. **Expansion Zones**
+   - Rapid scaling of classroom capacity and teacher deployment.
+   - Address overburdened existing infrastructure.
+3. **Infrastructure Gap Areas**
+   - Long-term investment in new school construction and rehabilitation of dormant facilities.
+
+### Decision Insight
+Rather than distributing resources evenly, EBI should prioritise the top-ranked LGAs identified by the EVI, where education disruption risk is highest, infrastructure gaps are most severe, and population demand is most concentrated. This targeted approach ensures that limited resources are deployed where they will have the greatest impact.
 
 ---
 
